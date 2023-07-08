@@ -1,0 +1,14 @@
+D:\Proiecte\GitHub\DotNet\Lab3Ex5\Lab3Ex5\bin\Debug\netcoreapp3.1\Lab3Ex5.exe
+D:\Proiecte\GitHub\DotNet\Lab3Ex5\Lab3Ex5\bin\Debug\netcoreapp3.1\Lab3Ex5.deps.json
+D:\Proiecte\GitHub\DotNet\Lab3Ex5\Lab3Ex5\bin\Debug\netcoreapp3.1\Lab3Ex5.runtimeconfig.json
+D:\Proiecte\GitHub\DotNet\Lab3Ex5\Lab3Ex5\bin\Debug\netcoreapp3.1\Lab3Ex5.runtimeconfig.dev.json
+D:\Proiecte\GitHub\DotNet\Lab3Ex5\Lab3Ex5\bin\Debug\netcoreapp3.1\Lab3Ex5.dll
+D:\Proiecte\GitHub\DotNet\Lab3Ex5\Lab3Ex5\bin\Debug\netcoreapp3.1\Lab3Ex5.pdb
+D:\Proiecte\GitHub\DotNet\Lab3Ex5\Lab3Ex5\obj\Debug\netcoreapp3.1\Lab3Ex5.csproj.AssemblyReference.cache
+D:\Proiecte\GitHub\DotNet\Lab3Ex5\Lab3Ex5\obj\Debug\netcoreapp3.1\Lab3Ex5.GeneratedMSBuildEditorConfig.editorconfig
+D:\Proiecte\GitHub\DotNet\Lab3Ex5\Lab3Ex5\obj\Debug\netcoreapp3.1\Lab3Ex5.AssemblyInfoInputs.cache
+D:\Proiecte\GitHub\DotNet\Lab3Ex5\Lab3Ex5\obj\Debug\netcoreapp3.1\Lab3Ex5.AssemblyInfo.cs
+D:\Proiecte\GitHub\DotNet\Lab3Ex5\Lab3Ex5\obj\Debug\netcoreapp3.1\Lab3Ex5.csproj.CoreCompileInputs.cache
+D:\Proiecte\GitHub\DotNet\Lab3Ex5\Lab3Ex5\obj\Debug\netcoreapp3.1\Lab3Ex5.dll
+D:\Proiecte\GitHub\DotNet\Lab3Ex5\Lab3Ex5\obj\Debug\netcoreapp3.1\Lab3Ex5.pdb
+D:\Proiecte\GitHub\DotNet\Lab3Ex5\Lab3Ex5\obj\Debug\netcoreapp3.1\Lab3Ex5.genruntimeconfig.cache
