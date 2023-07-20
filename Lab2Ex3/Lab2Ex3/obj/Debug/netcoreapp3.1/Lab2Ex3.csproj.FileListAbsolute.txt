@@ -1,0 +1,14 @@
+D:\Proiecte\GitHub\DotNet\Lab2Ex3\Lab2Ex3\bin\Debug\netcoreapp3.1\Lab2Ex3.exe
+D:\Proiecte\GitHub\DotNet\Lab2Ex3\Lab2Ex3\bin\Debug\netcoreapp3.1\Lab2Ex3.deps.json
+D:\Proiecte\GitHub\DotNet\Lab2Ex3\Lab2Ex3\bin\Debug\netcoreapp3.1\Lab2Ex3.runtimeconfig.json
+D:\Proiecte\GitHub\DotNet\Lab2Ex3\Lab2Ex3\bin\Debug\netcoreapp3.1\Lab2Ex3.runtimeconfig.dev.json
+D:\Proiecte\GitHub\DotNet\Lab2Ex3\Lab2Ex3\bin\Debug\netcoreapp3.1\Lab2Ex3.dll
+D:\Proiecte\GitHub\DotNet\Lab2Ex3\Lab2Ex3\bin\Debug\netcoreapp3.1\Lab2Ex3.pdb
+D:\Proiecte\GitHub\DotNet\Lab2Ex3\Lab2Ex3\obj\Debug\netcoreapp3.1\Lab2Ex3.csproj.AssemblyReference.cache
+D:\Proiecte\GitHub\DotNet\Lab2Ex3\Lab2Ex3\obj\Debug\netcoreapp3.1\Lab2Ex3.GeneratedMSBuildEditorConfig.editorconfig
+D:\Proiecte\GitHub\DotNet\Lab2Ex3\Lab2Ex3\obj\Debug\netcoreapp3.1\Lab2Ex3.AssemblyInfoInputs.cache
+D:\Proiecte\GitHub\DotNet\Lab2Ex3\Lab2Ex3\obj\Debug\netcoreapp3.1\Lab2Ex3.AssemblyInfo.cs
+D:\Proiecte\GitHub\DotNet\Lab2Ex3\Lab2Ex3\obj\Debug\netcoreapp3.1\Lab2Ex3.csproj.CoreCompileInputs.cache
+D:\Proiecte\GitHub\DotNet\Lab2Ex3\Lab2Ex3\obj\Debug\netcoreapp3.1\Lab2Ex3.dll
+D:\Proiecte\GitHub\DotNet\Lab2Ex3\Lab2Ex3\obj\Debug\netcoreapp3.1\Lab2Ex3.pdb
+D:\Proiecte\GitHub\DotNet\Lab2Ex3\Lab2Ex3\obj\Debug\netcoreapp3.1\Lab2Ex3.genruntimeconfig.cache
