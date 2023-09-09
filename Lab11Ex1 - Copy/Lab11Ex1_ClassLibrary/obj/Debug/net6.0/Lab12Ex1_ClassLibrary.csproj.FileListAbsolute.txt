@@ -1,0 +1,14 @@
+D:\Proiecte\GitHub\DotNet\Lab11Ex1 - Copy\Lab11Ex1_ClassLibrary\bin\Debug\net6.0\Lab12Ex1_ClassLibrary.deps.json
+D:\Proiecte\GitHub\DotNet\Lab11Ex1 - Copy\Lab11Ex1_ClassLibrary\bin\Debug\net6.0\Lab12Ex1_ClassLibrary.runtimeconfig.json
+D:\Proiecte\GitHub\DotNet\Lab11Ex1 - Copy\Lab11Ex1_ClassLibrary\bin\Debug\net6.0\Lab12Ex1_ClassLibrary.dll
+D:\Proiecte\GitHub\DotNet\Lab11Ex1 - Copy\Lab11Ex1_ClassLibrary\bin\Debug\net6.0\Lab12Ex1_ClassLibrary.pdb
+D:\Proiecte\GitHub\DotNet\Lab11Ex1 - Copy\Lab11Ex1_ClassLibrary\obj\Debug\net6.0\Lab12Ex1_ClassLibrary.csproj.AssemblyReference.cache
+D:\Proiecte\GitHub\DotNet\Lab11Ex1 - Copy\Lab11Ex1_ClassLibrary\obj\Debug\net6.0\Lab12Ex1_ClassLibrary.GeneratedMSBuildEditorConfig.editorconfig
+D:\Proiecte\GitHub\DotNet\Lab11Ex1 - Copy\Lab11Ex1_ClassLibrary\obj\Debug\net6.0\Lab12Ex1_ClassLibrary.AssemblyInfoInputs.cache
+D:\Proiecte\GitHub\DotNet\Lab11Ex1 - Copy\Lab11Ex1_ClassLibrary\obj\Debug\net6.0\Lab12Ex1_ClassLibrary.AssemblyInfo.cs
+D:\Proiecte\GitHub\DotNet\Lab11Ex1 - Copy\Lab11Ex1_ClassLibrary\obj\Debug\net6.0\Lab12Ex1_ClassLibrary.csproj.CoreCompileInputs.cache
+D:\Proiecte\GitHub\DotNet\Lab11Ex1 - Copy\Lab11Ex1_ClassLibrary\obj\Debug\net6.0\Lab12Ex1_ClassLibrary.dll
+D:\Proiecte\GitHub\DotNet\Lab11Ex1 - Copy\Lab11Ex1_ClassLibrary\obj\Debug\net6.0\refint\Lab12Ex1_ClassLibrary.dll
+D:\Proiecte\GitHub\DotNet\Lab11Ex1 - Copy\Lab11Ex1_ClassLibrary\obj\Debug\net6.0\Lab12Ex1_ClassLibrary.pdb
+D:\Proiecte\GitHub\DotNet\Lab11Ex1 - Copy\Lab11Ex1_ClassLibrary\obj\Debug\net6.0\Lab12Ex1_ClassLibrary.genruntimeconfig.cache
+D:\Proiecte\GitHub\DotNet\Lab11Ex1 - Copy\Lab11Ex1_ClassLibrary\obj\Debug\net6.0\ref\Lab12Ex1_ClassLibrary.dll
