@@ -7,5 +7,6 @@ namespace Lab12Ex1.Interfaces
         Task<Dictionary<int, string>> UpdateAddress(int addressId, Address updatedAddress, SchoolDbContext dbContext = null);
         void DeleteAddress(int addressId, SchoolDbContext dbContext = null);
         Address GetAddressById(int id);
+        Task<Dictionary<int, string>> AddAdress(Address address, SchoolDbContext dbContext = null);
     }
 }

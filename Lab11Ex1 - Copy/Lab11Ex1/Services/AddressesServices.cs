@@ -1,5 +1,6 @@
 ﻿using Lab12Ex1.Interfaces;
 using Lab12Ex1.Models;
+using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
 namespace Lab12Ex1.Services
@@ -31,7 +32,7 @@ namespace Lab12Ex1.Services
             }
             catch (Exception ex)
             {
-                result.Add(0, "500 - Error: "+ex.Message);
+                result.Add(0, "500 - Error: " + ex.Message);
             }
             return result;
         }
@@ -80,6 +81,27 @@ namespace Lab12Ex1.Services
         {
             var dbContext = new SchoolDbContext();
             return dbContext.Addresses.FirstOrDefault(x => x.Id == id);
+        }
+
+        public async Task<Dictionary<int, string>> AddAdress(Address address, SchoolDbContext dbContext = null)
+        {
+            var resutl = new Dictionary<int, string>();
+            try
+            {
+                dbContext = GetDbContext(dbContext);
+
+                dbContext.Addresses.AddAsync(address);
+                dbContext.SaveChangesAsync();
+
+                
+                resutl.Add(address.Id, "200 - Success");
+            }
+            catch (Exception ex)
+            {
+                resutl.Add(0, "500 - Error: "+ex.Message);
+            }
+
+            return resutl;
         }
     }
 }

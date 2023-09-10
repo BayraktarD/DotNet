@@ -14,7 +14,7 @@ namespace Lab12Ex1.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
-            builder.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Proiecte\GitHub\DotNet\Lab11Ex1\Lab11Ex1_ClassLibrary\SchoolDatabase.mdf;Integrated Security=True");
+            builder.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\Proiecte\GitHub\DotNet\Lab11Ex1 - Copy\Lab11Ex1_ClassLibrary\SchoolDatabase.mdf"";Integrated Security=True");
         }
     }
 }

@@ -24,10 +24,7 @@ namespace Lab12Ex1.Services
 
             foreach (var student in students)
             {
-                if (student.AddressId != 0)
-                {
-                    student.Address = dbContext.Addresses.Where(x => x.Id == student.AddressId).FirstOrDefault();
-                }
+                student.Address = dbContext.Addresses.FirstOrDefault(x => x.StudentId == student.Id);
             }
 
             return students;
@@ -43,10 +40,9 @@ namespace Lab12Ex1.Services
         {
             var dbContext = new SchoolDbContext();
             var student = dbContext.Students.SingleOrDefault(x => x.Id == id);
-            if (student != null && student.AddressId != 0)
-            {
-                student.Address = dbContext.Addresses.FirstOrDefault(x => x.Id == student.AddressId);
-            }
+
+            student.Address = dbContext.Addresses.FirstOrDefault(x => x.StudentId == student.Id);
+
             return student;
         }
 
@@ -65,6 +61,15 @@ namespace Lab12Ex1.Services
                 var dbContext = new SchoolDbContext();
                 dbContext.Students.Add(student);
                 dbContext.SaveChanges();
+                if (student.Address != null)
+                {
+                    student.Address.StudentId = student.Id;
+                    var addressAddResult = await _addressesServices.AddAdress(student.Address);
+                    if (addressAddResult.Keys.First() == 0)
+                    {
+                        return result;
+                    }
+                }
                 result.Add(student.Id, "200 - Success");
             }
             catch (Exception ex)
@@ -80,7 +85,6 @@ namespace Lab12Ex1.Services
         /// Actualizeaza un student si adresa acestuia. Adresa se actualizeaza doar daca se cere actualizarea acesteia.
         /// </summary>
         /// <param name="student"></param>
-        /// <param name="updateAddress">Determina daca se actualizeaza sau nu adresa: true - actaulizeaza, false - ignor actualizarea adresei.</param>
         /// <returns></returns>
         public async Task<Dictionary<int, string>> UpdateStudent(Student student, bool updateAddress)
         {
@@ -89,6 +93,13 @@ namespace Lab12Ex1.Services
             {
                 var dbContext = new SchoolDbContext();
                 var existingStudent = dbContext.Students.FirstOrDefault(x => x.Id == student.Id);
+                var existingStudentAddress = dbContext.Addresses.FirstOrDefault(x => x.StudentId == student.Id);
+
+                if(student.Address.StudentId != student.Id)
+                {
+                    student.Address.StudentId = student.Id;
+                }
+
                 if (existingStudent != null)
                 {
 
@@ -96,12 +107,38 @@ namespace Lab12Ex1.Services
                     existingStudent.LastName = student.LastName;
                     existingStudent.Age = student.Age;
 
+                    dbContext.SaveChangesAsync();
+
                     if (updateAddress)
                     {
-                        UpdateStudentAddress(student.Address, dbContext, existingStudent);
-                    }
+                        if (student.Address != null)
+                        {
 
-                    dbContext.SaveChanges();
+                            if (existingStudentAddress != null)
+                            {
+                                if (existingStudentAddress.City != student.Address.City && existingStudentAddress.Street != student.Address.Street && existingStudentAddress.StreetNo != student.Address.StreetNo)
+                                {
+                                    var addressUpdateResult = await _addressesServices.UpdateAddress(existingStudentAddress.Id, student.Address, dbContext);
+                                    if (addressUpdateResult.Keys.First() == 0)
+                                    {
+                                        return addressUpdateResult;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                var addressAddResult = await _addressesServices.AddAdress(student.Address, dbContext);
+                            }
+                        }
+                        else
+                        {
+                            if (existingStudentAddress != null)
+                            {
+                                _addressesServices.DeleteAddress(existingStudentAddress.Id, dbContext);
+                            }
+                        }
+
+                    }
 
                     result.Add(student.Id, "200 - Success");
                 }
@@ -115,30 +152,6 @@ namespace Lab12Ex1.Services
                 result.Add(0, "400 - Error: " + ex.Message);
             }
             return result;
-        }
-
-
-
-        private void UpdateStudentAddress(Address newAddress, SchoolDbContext dbContext, Student? existingStudent)
-        {
-            existingStudent.Address = dbContext.Addresses.FirstOrDefault(x => x.Id == existingStudent.AddressId);
-            if (existingStudent.AddressId != null)
-            {
-                if (newAddress != null)
-                {
-                    if (existingStudent.Address.City != newAddress.City || existingStudent.Address.Street != newAddress.Street || existingStudent.Address.StreetNo != newAddress.StreetNo)
-                        _addressesServices.UpdateAddress((int)existingStudent.AddressId, newAddress, dbContext);
-                }
-                else
-                {
-                    existingStudent.AddressId = null;
-                    dbContext.Addresses.Remove(existingStudent.Address);
-                }
-            }
-            else
-            {
-                existingStudent.Address = newAddress;
-            }
         }
 
 
@@ -158,7 +171,7 @@ namespace Lab12Ex1.Services
                 var student = dbContext.Students.FirstOrDefault(x => x.Id == id);
                 if (student != null)
                 {
-                    var studentAddress = dbContext.Addresses.FirstOrDefault(y => y.Id == student.AddressId);
+                    var studentAddress = dbContext.Addresses.FirstOrDefault(y => y.StudentId == student.Id);
                     if (studentAddress != null && deleteStudentAddress == true)
                     {
                         dbContext.Remove(studentAddress);
@@ -197,7 +210,7 @@ namespace Lab12Ex1.Services
             var student = dbContext.Students.FirstOrDefault(x => x.Id == studentId);
             if (student != null)
             {
-                address = dbContext.Addresses.Where(x => x.Id == student.AddressId).FirstOrDefault();
+                address = dbContext.Addresses.Where(x => x.StudentId == studentId).FirstOrDefault();
             }
             return address;
         }
@@ -220,21 +233,30 @@ namespace Lab12Ex1.Services
                 var existingStudent = dbContext.Students.FirstOrDefault(x => x.Id == studentId);
                 if (existingStudent != null)
                 {
-                    existingStudent.Address = dbContext.Addresses.FirstOrDefault(x => x.Id == existingStudent.AddressId);
+                    var existingStudentAddress = dbContext.Addresses.FirstOrDefault(x => x.StudentId == existingStudent.Id);
 
-                    if (existingStudent.AddressId != null)
+                    if (existingStudentAddress != null)
                     {
-                        if (existingStudent.Address.City != address.City || existingStudent.Address.Street != address.Street || existingStudent.Address.StreetNo != address.StreetNo)
+                        if (existingStudentAddress.City != address.City || existingStudentAddress.Street != address.Street || existingStudentAddress.StreetNo != address.StreetNo)
                         {
-                            var addressUpdateResult = await _addressesServices.UpdateAddress((int)existingStudent.AddressId, address, dbContext);
+                            var addressUpdateResult = await _addressesServices.UpdateAddress((int)existingStudentAddress.Id, address, dbContext);
+
+                            if (addressUpdateResult.Keys.First() == 0)
+                            {
+                                return addressUpdateResult;
+                            }
                         }
                     }
                     else
                     {
-                        existingStudent.Address = address;
+                        var addressAddResult = await _addressesServices.AddAdress(address, dbContext);
+                        if (addressAddResult.Keys.First() == 0)
+                        {
+                            return addressAddResult;
+                        }
                     }
 
-                    result.Add(existingStudent.Address.Id, "200 - Success");
+                    result.Add(existingStudentAddress.Id, "200 - Success");
                 }
                 else
                 {

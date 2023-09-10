@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Lab12Ex1.Models
 {
@@ -10,6 +12,9 @@ namespace Lab12Ex1.Models
         /// </summary>
         [Key]
         public int Id { get; set; }
+
+        [ForeignKey("Students")]
+        public int StudentId { get; set; }
 
 
         /// <summary>

@@ -31,7 +31,7 @@ namespace Lab12Ex1.Controllers
                 var studentAddress = await _studentsService.GetStudentAddress(studentId);
                 if (studentAddress.Id > 0)
                 {
-                    return Ok(_studentsService.GetStudentAddress(studentId));
+                    return Ok(studentAddress);
                 }
                 else
                 {
@@ -114,13 +114,13 @@ namespace Lab12Ex1.Controllers
 
 
         /// <summary>
-        /// Actualizare date student. 
+        /// Actualizare date student.
         /// </summary>
-        /// <param name="student">Student</param>
-        /// <param name="updateAddress">true - actualizare si adresa, false - nu actualiza si adresa</param>
+        /// <param name="student"></param>
+        /// <param name="updateAddress"></param>
         /// <returns></returns>
         [HttpPut("UpdateStudent")]
-        public async Task<IActionResult> UpdateStudentAsync(Student student, [FromQuery] bool updateAddress)
+        public async Task<IActionResult> UpdateStudentAsync(Student student,[FromQuery] bool updateAddress)
         {
             if (student.Id > 0)
             {

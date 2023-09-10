@@ -15,13 +15,6 @@ namespace Lab12Ex1.Models
         public int Id { get; set; }
 
         /// <summary>
-        /// Id-ul Adresei studentului din tabela Addresses
-        /// </summary>
-        [JsonIgnore]
-        [ForeignKey("Addresses")]
-        public int? AddressId { get; set; }
-
-        /// <summary>
         /// Prenumele studentului
         /// </summary>
         public string FirstName { get; set; }
@@ -40,11 +33,6 @@ namespace Lab12Ex1.Models
         [DefaultValue(1)]
         public int Age { get; set; }
 
-
-        /// <summary>
-        /// Adresa studentului
-        /// </summary>
-        public Address? Address { get; set; }
-
+        public virtual Address? Address { get; set; }
     }
 }
