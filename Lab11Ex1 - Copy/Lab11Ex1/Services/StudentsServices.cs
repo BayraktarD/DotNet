@@ -1,5 +1,6 @@
 ﻿using Lab12Ex1.Interfaces;
 using Lab12Ex1.Models;
+using System.Data.Entity;
 
 namespace Lab12Ex1.Services
 {

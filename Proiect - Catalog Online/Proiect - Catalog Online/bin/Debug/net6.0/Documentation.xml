@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Proiect - Catalog Online</name>
+    </assembly>
+    <members>
+        <member name="M:Proiect___Catalog_Online.Controllers.StudentController.GetStudentsAsync">
+            <summary>
+            Returenaza lista studentilor.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Controllers.StudentController.GetStudentByIdAsync(System.Int32)">
+            <summary>
+            Returneaza un student in functie de Id.
+            </summary>
+            <param name="id">Id-ul studentului.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Controllers.StudentController.AddStudentAsync(Proiect___Catalog_Online.DTOs.StudentDTO)">
+            <summary>
+            Adauga un student nou.
+            </summary>
+            <param name="studentDTO">Studentul</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Controllers.StudentController.DeleteStudentAsync(System.Int32,System.Boolean)">
+            <summary>
+            Stergere student pe baza Id-ului studentului.
+            </summary>
+            <param name="id">Id-ul studentului care se vrea sters.</param>
+            <param name="deleteAddress">true - sterge si adresa, false - nu sterge adresa studentului</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Controllers.StudentController.UpdateStudentAsync(Proiect___Catalog_Online.DTOs.StudentDTO,System.Boolean)">
+            <summary>
+            Actualizare date student.
+            </summary>
+            <param name="student"></param>
+            <param name="updateAddress"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Controllers.StudentController.GetStudentAddressAsync(System.Int32)">
+            <summary>
+            Returneaza adresa studentului dupa Id-ul studentului.
+            </summary>
+            <param name="studentId">Id-ul studentului a carui adresa se va returna.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Controllers.StudentController.UpdateStudentAddressAsync(System.Int32,Proiect___Catalog_Online.DTOs.AddressDTO)">
+            <summary>
+            Actualizare adresa student pe baza Id-ului de student.
+            </summary>
+            <param name="studentId">Id-ul studentului a carui adresa se vrea actualizata.</param>
+            <param name="address">Adresa</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.AddressRepository.UpdateAddressAsync(System.Int32,Proiect___Catalog_Online.DTOs.AddressDTO)">
+            <summary>
+            Actualizeaza o adresa in functie de Id.
+            </summary>
+            <param name="addressId">Id-ul adresei care se vrea modificata.</param>
+            <param name="addressDTO">Noua adresa.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.AddressRepository.DeleteAddressAsync(System.Int32)">
+            <summary>
+            Sterge o adresa in functie de Id.
+            </summary>
+            <param name="addressId">Id-ul adresei care se vrea actualizat.</param>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.AddressRepository.GetAddressById(System.Int32)">
+            <summary>
+            Returneaza adresa dupa Id-ul adresei.
+            </summary>
+            <param name="id">Id-ul adresei care se vrea returnata.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.StudentRepository.GetAllStudentsAsync">
+            <summary>
+            Returneaza lista studentilor.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.StudentRepository.GetStudentByIdAsync(System.Int32)">
+            <summary>
+            Returneaza studentul dupa Id.
+            </summary>
+            <param name="id">Id-ul studentului.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.StudentRepository.AddStudentAsync(Proiect___Catalog_Online.DTOs.StudentDTO)">
+            <summary>
+            Adauga un studentDTO nou in baza de date.
+            </summary>
+            <param name="student">Studentul</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.StudentRepository.UpdateStudentAsync(Proiect___Catalog_Online.DTOs.StudentDTO,System.Boolean)">
+            <summary>
+            Actualizeaza un studentDTO si adresa acestuia. Adresa se actualizeaza doar daca se cere actualizarea acesteia.
+            </summary>
+            <param name="studentDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.StudentRepository.DeleteStudentAsync(System.Int32,System.Boolean)">
+            <summary>
+            Sterge un sutdent dupa id. Se poate sterge si adresa daca se cere.
+            </summary>
+            <param name="id">Id-ul studentului care trebuie sters.</param>
+            <param name="deleteStudentAddress">true - sterge si adresa, false - nu sterge adresa.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.StudentRepository.GetStudentAddressAsync(System.Int32)">
+            <summary>
+            Returneaza adresa unui studentDTO dupa Id-ul studentului.
+            </summary>
+            <param name="studentId">Id-ul studentului a carui adresa dorim sa o obtinem.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.StudentRepository.UpdateStudentAddressAsync(System.Int32,Proiect___Catalog_Online.DTOs.AddressDTO)">
+            <summary>
+            Actualizare adresa pentru studentul cu Id-ul funrizat.
+            </summary>
+            <param name="studentId">Id-ul studentului a carui adresa dorim sa o modificam.</param>
+            <param name="addressDTO">Noua adresa a studentului.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Services.StudentService.GetAllStudentsAsync">
+            <summary>
+            Returneaza lista studentilor.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Services.StudentService.GetStudentByIdAsync(System.Int32)">
+            <summary>
+            Returneaza studentul dupa Id.
+            </summary>
+            <param name="id">Id-ul studentului.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Services.StudentService.AddStudentAsync(Proiect___Catalog_Online.DTOs.StudentDTO)">
+            <summary>
+            Adauga un studentDTO nou in baza de date.
+            </summary>
+            <param name="student">Studentul</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Services.StudentService.UpdateStudentAsync(Proiect___Catalog_Online.DTOs.StudentDTO,System.Boolean)">
+            <summary>
+            Actualizeaza un studentDTO si adresa acestuia. Adresa se actualizeaza doar daca se cere actualizarea acesteia.
+            </summary>
+            <param name="studentDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Services.StudentService.DeleteStudentAsync(System.Int32,System.Boolean)">
+            <summary>
+            Sterge un sutdent dupa id. Se poate sterge si adresa daca se cere.
+            </summary>
+            <param name="id">Id-ul studentului care trebuie sters.</param>
+            <param name="deleteStudentAddress">true - sterge si adresa, false - nu sterge adresa.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Services.StudentService.GetStudentAddressAsync(System.Int32)">
+            <summary>
+            Returneaza adresa unui studentDTO dupa Id-ul studentului.
+            </summary>
+            <param name="studentId">Id-ul studentului a carui adresa dorim sa o obtinem.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Services.StudentService.UpdateStudentAddressAsync(System.Int32,Proiect___Catalog_Online.DTOs.AddressDTO)">
+            <summary>
+            Actualizare adresa pentru studentul cu Id-ul funrizat.
+            </summary>
+            <param name="studentId">Id-ul studentului a carui adresa dorim sa o modificam.</param>
+            <param name="addressDTO">Noua adresa a studentului.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
