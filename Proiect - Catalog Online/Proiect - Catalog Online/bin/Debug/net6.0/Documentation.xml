@@ -4,6 +4,40 @@
         <name>Proiect - Catalog Online</name>
     </assembly>
     <members>
+        <member name="T:Proiect___Catalog_Online.Controllers.MarkController">
+            <summary>
+            Mark Controller
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Controllers.MarkController.GetStudentMarksAsync(System.Int32)">
+            <summary>
+            GEt Student's Marks
+            </summary>
+            <param name="studentId"></param>
+            <returns>List of Student's Marks</returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Controllers.MarkController.GetStudentMarksAtSubjectAsync(System.Int32,System.Int32)">
+            <summary>
+            Get Student's Marks For Certain Subject
+            </summary>
+            <param name="studentId"></param>
+            <param name="subjectId"></param>
+            <returns>list of student's marks</returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Controllers.MarkController.GetStudentAveragesForEachSubjectAsync(System.Int32)">
+            <summary>
+            Get Student's Averages For Each Subject
+            </summary>
+            <param name="studentId"></param>
+            <returns>string - subject name/error; decimal - mean</returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Controllers.MarkController.AddMarkAsync(Proiect___Catalog_Online.DTOs.MarkDTO)">
+            <summary>
+            Add new Mark
+            </summary>
+            <param name="markDTO"></param>
+            <returns>int - new mark Id; string - status</returns>
+        </member>
         <member name="M:Proiect___Catalog_Online.Controllers.StudentController.GetStudentsAsync">
             <summary>
             Returenaza lista studentilor.
@@ -55,6 +89,116 @@
             <param name="address">Adresa</param>
             <returns></returns>
         </member>
+        <member name="T:Proiect___Catalog_Online.Controllers.SubjectController">
+            <summary>
+            Subject Controller
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Controllers.SubjectController.#ctor(Proiect___Catalog_Online.Interfaces.Services.ISubjectService)">
+            <summary>
+            Subject Controller Constructor
+            </summary>
+            <param name="subjectService"></param>
+        </member>
+        <member name="T:Proiect___Catalog_Online.Interfaces.Repositories.IMarkRepository">
+            <summary>
+            Mark Repository Interface
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Repositories.IMarkRepository.GetStudentMarksAsync(System.Int32)">
+            <summary>
+            Get Student's Marks
+            </summary>
+            <param name="studentId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Repositories.IMarkRepository.GetStudentMarksAtSubjectAsync(System.Int32,System.Int32)">
+            <summary>
+            Get Student's Marks For Certain Subject
+            </summary>
+            <param name="studentId"></param>
+            <param name="subjectId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Repositories.IMarkRepository.GetStudentAveragesForEachSubjectAsync(System.Int32)">
+            <summary>
+            Get Student's Averages For Each Subject
+            </summary>
+            <param name="studentId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Repositories.IMarkRepository.AddMarkAsync(Proiect___Catalog_Online.DTOs.MarkDTO)">
+            <summary>
+            Add Mark
+            </summary>
+            <param name="markDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Repositories.IMarkRepository.DeleteStudentMarksAsync(System.Int32)">
+            <summary>
+            Delete student's marks
+            </summary>
+            <param name="studentId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Proiect___Catalog_Online.Interfaces.Repositories.ISubjectRepository">
+            <summary>
+            Subject Repository Intercace
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Repositories.ISubjectRepository.AddSubjectAsync(Proiect___Catalog_Online.DTOs.SubjectDTO)">
+            <summary>
+            Adaugare Curs
+            </summary>
+            <param name="subjectDTO">Curs</param>
+            <returns></returns>
+        </member>
+        <member name="T:Proiect___Catalog_Online.Interfaces.Services.IMarkService">
+            <summary>
+            Mark Service Inteface
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Services.IMarkService.GetStudentMarksAsync(System.Int32)">
+            <summary>
+            Get Student's Marks
+            </summary>
+            <param name="studentId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Services.IMarkService.GetStudentMarksAtSubjectAsync(System.Int32,System.Int32)">
+            <summary>
+            Get Student's Marks For Certain Subject
+            </summary>
+            <param name="studentId"></param>
+            <param name="subjectId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Services.IMarkService.GetStudentAveragesForEachSubjectAsync(System.Int32)">
+            <summary>
+            Get Student's Averages For Each Subject
+            </summary>
+            <param name="studentId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Services.IMarkService.AddMarkAsync(Proiect___Catalog_Online.DTOs.MarkDTO)">
+            <summary>
+            Get Student's Averages For Each Subject
+            </summary>
+            <param name="studentId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Services.IMarkService.DeleteStudentMarksAsync(System.Int32)">
+            <summary>
+            Delete student's marks
+            </summary>
+            <param name="studentId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Proiect___Catalog_Online.Interfaces.Services.ISubjectService">
+            <summary>
+            Subject Service Interface
+            </summary>
+        </member>
         <member name="M:Proiect___Catalog_Online.Repositories.AddressRepository.UpdateAddressAsync(System.Int32,Proiect___Catalog_Online.DTOs.AddressDTO)">
             <summary>
             Actualizeaza o adresa in functie de Id.
@@ -74,6 +218,53 @@
             Returneaza adresa dupa Id-ul adresei.
             </summary>
             <param name="id">Id-ul adresei care se vrea returnata.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Proiect___Catalog_Online.Repositories.MarkRepository">
+            <summary>
+            Mark Repository Class
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.MarkRepository.#ctor(CatalogOnline_ClassLibrary.EntityModels.SchoolDbContext)">
+            <summary>
+            Mark Repository Contstructor
+            </summary>
+            <param name="schoolDbContext"></param>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.MarkRepository.GetStudentMarksAsync(System.Int32)">
+            <summary>
+            Get Studnet's Marks
+            </summary>
+            <param name="studentId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.MarkRepository.GetStudentMarksAtSubjectAsync(System.Int32,System.Int32)">
+            <summary>
+            Get Student's Marks At Certain Subject
+            </summary>
+            <param name="studentId"></param>
+            <param name="subjectId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.MarkRepository.GetStudentAveragesForEachSubjectAsync(System.Int32)">
+            <summary>
+            Get Student's Averages For Each Subject
+            </summary>
+            <param name="studentId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.MarkRepository.DeleteStudentMarksAsync(System.Int32)">
+            <summary>
+            Delete student's marks
+            </summary>
+            <param name="studentId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.MarkRepository.AddMarkAsync(Proiect___Catalog_Online.DTOs.MarkDTO)">
+            <summary>
+            Add Mark
+            </summary>
+            <param name="markDTO"></param>
             <returns></returns>
         </member>
         <member name="M:Proiect___Catalog_Online.Repositories.StudentRepository.GetAllStudentsAsync">
@@ -126,6 +317,71 @@
             <param name="addressDTO">Noua adresa a studentului.</param>
             <returns></returns>
         </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.StudentRepository.GetStudentsListOrderedByMarksAverageAsync(System.Boolean)">
+            <summary>
+            Get Students List Ordered By Marks Average
+            </summary>
+            <param name="orderByAscending"></param>
+            <returns>a ordered list of students</returns>
+        </member>
+        <member name="T:Proiect___Catalog_Online.Repositories.SubjectRepository">
+            <summary>
+            Subject Repository Class
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.SubjectRepository.#ctor(CatalogOnline_ClassLibrary.EntityModels.SchoolDbContext)">
+            <summary>
+            Constructor Subject Repository
+            </summary>
+            <param name="db"></param>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.SubjectRepository.AddSubjectAsync(Proiect___Catalog_Online.DTOs.SubjectDTO)">
+            <summary>
+            Adaugare curs
+            </summary>
+            <param name="subjectDTO">Curs</param>
+            <returns></returns>
+        </member>
+        <member name="T:Proiect___Catalog_Online.Services.MarkService">
+            <summary>
+            Mark Service Class
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Services.MarkService.#ctor(Proiect___Catalog_Online.Interfaces.Repositories.IMarkRepository)">
+            <summary>
+            Mark Service Constructor
+            </summary>
+            <param name="markRepository"></param>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Services.MarkService.GetStudentMarksAsync(System.Int32)">
+            <summary>
+            Get Studnet's Marks
+            </summary>
+            <param name="studentId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Services.MarkService.GetStudentMarksAtSubjectAsync(System.Int32,System.Int32)">
+            <summary>
+            Get Student's Marks At Certain Subject
+            </summary>
+            <param name="studentId"></param>
+            <param name="subjectId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Services.MarkService.GetStudentAveragesForEachSubjectAsync(System.Int32)">
+            <summary>
+            Get Student's Averages For Each Subject
+            </summary>
+            <param name="studentId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Services.MarkService.AddMarkAsync(Proiect___Catalog_Online.DTOs.MarkDTO)">
+            <summary>
+            Add Mark
+            </summary>
+            <param name="markDTO"></param>
+            <returns></returns>
+        </member>
         <member name="M:Proiect___Catalog_Online.Services.StudentService.GetAllStudentsAsync">
             <summary>
             Returneaza lista studentilor.
@@ -175,6 +431,24 @@
             <param name="studentId">Id-ul studentului a carui adresa dorim sa o modificam.</param>
             <param name="addressDTO">Noua adresa a studentului.</param>
             <returns></returns>
+        </member>
+        <member name="T:Proiect___Catalog_Online.Services.SubjectService">
+            <summary>
+            Subject Service Class
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Services.SubjectService.#ctor(Proiect___Catalog_Online.Interfaces.Repositories.ISubjectRepository)">
+            <summary>
+            Subject Service Constructor
+            </summary>
+            <param name="subjectRepository"></param>
+        </member>
+        <member name="T:Proiect___Catalog_Online.Utils.OrderedDictionary`2">
+            <summary>
+            Custom OrderedDictionary implementation
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
         </member>
     </members>
 </doc>

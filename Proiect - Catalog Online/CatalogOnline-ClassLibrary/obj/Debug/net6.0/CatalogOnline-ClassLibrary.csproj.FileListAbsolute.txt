@@ -1,4 +1,5 @@
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\CatalogOnline-ClassLibrary\bin\Debug\net6.0\CatalogOnline-ClassLibrary.deps.json
+D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\CatalogOnline-ClassLibrary\bin\Debug\net6.0\CatalogOnline-ClassLibrary.runtimeconfig.json
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\CatalogOnline-ClassLibrary\bin\Debug\net6.0\CatalogOnline-ClassLibrary.dll
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\CatalogOnline-ClassLibrary\bin\Debug\net6.0\CatalogOnline-ClassLibrary.pdb
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\CatalogOnline-ClassLibrary\obj\Debug\net6.0\CatalogOnline-ClassLibrary.csproj.AssemblyReference.cache
@@ -9,4 +10,5 @@ D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\CatalogOnline-ClassLibrary\ob
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\CatalogOnline-ClassLibrary\obj\Debug\net6.0\CatalogOnline-ClassLibrary.dll
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\CatalogOnline-ClassLibrary\obj\Debug\net6.0\refint\CatalogOnline-ClassLibrary.dll
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\CatalogOnline-ClassLibrary\obj\Debug\net6.0\CatalogOnline-ClassLibrary.pdb
+D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\CatalogOnline-ClassLibrary\obj\Debug\net6.0\CatalogOnline-ClassLibrary.genruntimeconfig.cache
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\CatalogOnline-ClassLibrary\obj\Debug\net6.0\ref\CatalogOnline-ClassLibrary.dll

@@ -6,6 +6,7 @@ namespace Proiect___Catalog_Online.DTOs
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public int TeacherId { get; set; }
 
         public SubjectDTO()
         {
@@ -16,6 +17,7 @@ namespace Proiect___Catalog_Online.DTOs
         {
             Id = subject.Id;
             Name = subject.Name;
+            TeacherId = subject.TeacherId;
         }
     }
 }

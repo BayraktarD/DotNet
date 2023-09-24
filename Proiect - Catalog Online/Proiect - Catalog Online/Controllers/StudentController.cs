@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Proiect___Catalog_Online.DTOs;
 using Proiect___Catalog_Online.Interfaces.Repositories;
 using Proiect___Catalog_Online.Interfaces.Services;
+using Proiect___Catalog_Online.Repositories;
 
 namespace Proiect___Catalog_Online.Controllers
 {
@@ -189,6 +190,12 @@ namespace Proiect___Catalog_Online.Controllers
             {
                 return BadRequest(result);
             }
+        }
+
+        [HttpGet(" GetStudentsListOrderedByMarksAverage")]
+        public async Task<Dictionary<string, decimal>> GetStudentsListOrderedByMarksAverageAsync([FromQuery] bool orderByAscending = true)
+        {
+            return await _studentService.GetStudentsListOrderedByMarksAverageAsync(orderByAscending);
         }
 
     }

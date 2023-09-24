@@ -95,5 +95,11 @@ namespace Proiect___Catalog_Online.Services
         {
             return await _studentRepository.UpdateStudentAddressAsync(studentId,addressDTO);
         }
+
+        public async Task<Dictionary<string, decimal>> GetStudentsListOrderedByMarksAverageAsync(bool orderByAscending)
+        {
+           return await _studentRepository.GetStudentsListOrderedByMarksAverageAsync(orderByAscending);
+        }
+
     }
 }

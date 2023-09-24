@@ -1,5 +1,6 @@
 ﻿using CatalogOnline_ClassLibrary.EntityModels;
 using Proiect___Catalog_Online.DTOs;
+using System.Threading.Tasks;
 
 namespace Proiect___Catalog_Online.Interfaces.Repositories
 {
@@ -12,5 +13,6 @@ namespace Proiect___Catalog_Online.Interfaces.Repositories
         Task<Dictionary<bool, string>> DeleteStudentAsync(int id, bool deleteStudentAddress);
         Task<AddressDTO> GetStudentAddressAsync(int studentId);
         Task<Dictionary<int, string>> UpdateStudentAddressAsync(int studentId, AddressDTO address);
+        Task<Dictionary<string, decimal>> GetStudentsListOrderedByMarksAverageAsync(bool orderByAscending);
     }
 }

@@ -5,6 +5,7 @@ D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\bin\
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\bin\Debug\net6.0\Proiect - Catalog Online.runtimeconfig.json
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\bin\Debug\net6.0\Proiect - Catalog Online.dll
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\bin\Debug\net6.0\Proiect - Catalog Online.pdb
+D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\bin\Debug\net6.0\Documentation.xml
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\bin\Debug\net6.0\Azure.Core.dll
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\bin\Debug\net6.0\Azure.Identity.dll
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
@@ -13,6 +14,7 @@ D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\bin\
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.dll
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
@@ -33,6 +35,8 @@ D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\bin\
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\bin\Debug\net6.0\Microsoft.OpenApi.dll
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\bin\Debug\net6.0\Microsoft.SqlServer.Server.dll
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\bin\Debug\net6.0\NetTopologySuite.dll
+D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\bin\Debug\net6.0\NetTopologySuite.IO.SqlServerBytes.dll
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -65,6 +69,7 @@ D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\obj\
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\obj\Debug\net6.0\Proiect - Catalog Online.csproj.CoreCompileInputs.cache
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\obj\Debug\net6.0\Proiect - Catalog Online.MvcApplicationPartsAssemblyInfo.cs
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\obj\Debug\net6.0\Proiect - Catalog Online.MvcApplicationPartsAssemblyInfo.cache
+D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\obj\Debug\net6.0\EFCoreSqlServerNetTopologySuite.cs
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\obj\Debug\net6.0\staticwebassets\msbuild.Proiect - Catalog Online.Microsoft.AspNetCore.StaticWebAssets.props
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\obj\Debug\net6.0\staticwebassets\msbuild.build.Proiect - Catalog Online.props
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Proiect - Catalog Online.props
@@ -79,8 +84,3 @@ D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\obj\
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\obj\Debug\net6.0\Proiect - Catalog Online.pdb
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\obj\Debug\net6.0\Proiect - Catalog Online.genruntimeconfig.cache
 D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\obj\Debug\net6.0\ref\Proiect - Catalog Online.dll
-D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.dll
-D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\bin\Debug\net6.0\NetTopologySuite.dll
-D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\bin\Debug\net6.0\NetTopologySuite.IO.SqlServerBytes.dll
-D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\obj\Debug\net6.0\EFCoreSqlServerNetTopologySuite.cs
-D:\Proiecte\GitHub\DotNet\Proiect - Catalog Online\Proiect - Catalog Online\bin\Debug\net6.0\Documentation.xml

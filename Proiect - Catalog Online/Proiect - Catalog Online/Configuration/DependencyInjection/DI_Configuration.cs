@@ -25,11 +25,15 @@ namespace Proiect___Catalog_Online.Configuration.DependencyInjection
         {
             services.AddScoped<IStudentService, StudentService>();
             services.AddScoped<IAddressService, AddressService>();
+            services.AddScoped<ISubjectService, SubjectService>();
+            services.AddScoped<IMarkService, MarkService>();
         }
         public static void REPOSITORY_DI_Configuration(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<IStudentRepository, StudentRepository>();
             services.AddScoped<IAddressRepository, AddressRepository>();
+            services.AddScoped<ISubjectRepository, SubjectRepository>();
+            services.AddScoped<IMarkRepository, MarkRepository>();
 
 
         }

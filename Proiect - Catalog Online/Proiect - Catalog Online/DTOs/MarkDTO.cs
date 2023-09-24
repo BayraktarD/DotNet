@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using CatalogOnline_ClassLibrary.EntityModels;
+using System.Text.Json.Serialization;
 
 namespace Proiect___Catalog_Online.DTOs
 {
@@ -16,7 +17,10 @@ namespace Proiect___Catalog_Online.DTOs
         [Range(1, 10, ErrorMessage = "Nota poate fi intre 1 si 10 inclusiv")]
         public int Value { get; set; }
 
+        [JsonIgnore]
         public virtual StudentDTO? Student { get; set; }
+
+        [JsonIgnore]
         public virtual SubjectDTO? Subject { get; set; }
 
 

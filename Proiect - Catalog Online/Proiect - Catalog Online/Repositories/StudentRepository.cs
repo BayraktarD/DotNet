@@ -3,7 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using Proiect___Catalog_Online.DTOs;
 using Proiect___Catalog_Online.Interfaces.Repositories;
 using Proiect___Catalog_Online.Interfaces.Services;
+using Proiect___Catalog_Online.Utils;
+using System.Collections.Specialized;
+using System.Linq;
 using System.Net;
+using System.Xml.Linq;
 
 namespace Proiect___Catalog_Online.Repositories
 {
@@ -11,10 +15,12 @@ namespace Proiect___Catalog_Online.Repositories
     {
         private readonly SchoolDbContext _db;
         private readonly IAddressService _addressService;
-        public StudentRepository(SchoolDbContext db, IAddressService addressService)
+        private readonly IMarkService _markService;
+        public StudentRepository(SchoolDbContext db, IAddressService addressService, IMarkService markService)
         {
-            _db= db;
-            _addressService= addressService;
+            _db = db;
+            _addressService = addressService;
+            _markService = markService;
         }
 
         /// <summary>
@@ -190,8 +196,10 @@ namespace Proiect___Catalog_Online.Repositories
                         _db.Remove(studentAddress);
                     }
 
+                    var deleteMarksResult = await _markService.DeleteStudentMarksAsync(student.Id);
+
                     _db.Remove(student);
-                    _db.SaveChanges();
+                    await _db.SaveChangesAsync();
                     result.Add(true, "200 - Success");
                 }
                 else
@@ -282,5 +290,54 @@ namespace Proiect___Catalog_Online.Repositories
             return result;
         }
 
+        /// <summary>
+        /// Get Students List Ordered By Marks Average
+        /// </summary>
+        /// <param name="orderByAscending"></param>
+        /// <returns>a ordered list of students</returns>
+        public async Task<Dictionary<string, decimal>> GetStudentsListOrderedByMarksAverageAsync(bool orderByAscending)
+        {
+            var result = new Dictionary<string, decimal>();
+            try
+            {
+                var students = await _db.Students.ToListAsync();
+
+                foreach (var student in students)
+                {
+                    var studentMarkDTOs = await _markService.GetStudentMarksAsync(student.Id);
+                    var studentMarksValues = studentMarkDTOs.Select(m => m.Value).ToList();
+                    var studentMean = (decimal)studentMarksValues.Sum() / (decimal)studentMarkDTOs.Count();
+                    result.Add("Id: " + student.Id + " " + student.FirstName + " " + student.LastName + ", Age: " + student.Age, studentMean);
+                }
+                return SortResult(orderByAscending, result);
+
+            }
+            catch (Exception ex)
+            {
+                result.Clear();
+                result.Add("400 - Error: " + ex.Message, 0);
+                return result;
+            }
+        }
+
+        private OrderedDictionary<string, decimal> SortResult(bool orderByAscending, Dictionary<string, decimal> result)
+        {
+            OrderedDictionary<string, decimal> orderedDictionary = new OrderedDictionary<string, decimal>();
+            IOrderedEnumerable<KeyValuePair<string, decimal>> sortedResult;
+            if (orderByAscending)
+            {
+                sortedResult = result.OrderBy(x => x.Value);
+
+            }
+            else
+            {
+                sortedResult = result.OrderByDescending(x => x.Value);
+            }
+            foreach (var item in sortedResult)
+            {
+                orderedDictionary.Add(item.Key, item.Value);
+            }
+            return orderedDictionary;
+        }
     }
 }
