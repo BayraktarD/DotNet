@@ -4,10 +4,42 @@
         <name>Proiect - Catalog Online</name>
     </assembly>
     <members>
+        <member name="T:Proiect___Catalog_Online.Configuration.DependencyInjection.DI_Configuration">
+            <summary>
+            DI_Configuration
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Configuration.DependencyInjection.DI_Configuration.AddDependencies(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            AddDependencies
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Configuration.DependencyInjection.DI_Configuration.SERVICE_DI_Configuration(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            SERVICE_DI_Configuration
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Configuration.DependencyInjection.DI_Configuration.REPOSITORY_DI_Configuration(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            REPOSITORY_DI_Configuration
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+        </member>
         <member name="T:Proiect___Catalog_Online.Controllers.MarkController">
             <summary>
             Mark Controller
             </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Controllers.MarkController.#ctor(Proiect___Catalog_Online.Interfaces.Services.IMarkService)">
+            <summary>
+            MarkController Constructor
+            </summary>
+            <param name="markService"></param>
         </member>
         <member name="M:Proiect___Catalog_Online.Controllers.MarkController.GetStudentMarksAsync(System.Int32)">
             <summary>
@@ -37,6 +69,17 @@
             </summary>
             <param name="markDTO"></param>
             <returns>int - new mark Id; string - status</returns>
+        </member>
+        <member name="T:Proiect___Catalog_Online.Controllers.StudentController">
+            <summary>
+            StudentController
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Controllers.StudentController.#ctor(Proiect___Catalog_Online.Interfaces.Services.IStudentService)">
+            <summary>
+            StudentController Constructor
+            </summary>
+            <param name="studentService"></param>
         </member>
         <member name="M:Proiect___Catalog_Online.Controllers.StudentController.GetStudentsAsync">
             <summary>
@@ -89,6 +132,13 @@
             <param name="address">Adresa</param>
             <returns></returns>
         </member>
+        <member name="M:Proiect___Catalog_Online.Controllers.StudentController.GetStudentsListOrderedByMarksAverageAsync(System.Boolean)">
+            <summary>
+            Get Students List Ordered By Marks Average
+            </summary>
+            <param name="orderByAscending"></param>
+            <returns>a ordered list of students</returns>
+        </member>
         <member name="T:Proiect___Catalog_Online.Controllers.SubjectController">
             <summary>
             Subject Controller
@@ -99,6 +149,370 @@
             Subject Controller Constructor
             </summary>
             <param name="subjectService"></param>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Controllers.SubjectController.GetSubjectsAsync">
+            <summary>
+            Returneaza lista subiectelor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Controllers.SubjectController.AddSubjectAsync(Proiect___Catalog_Online.DTOs.SubjectDTO)">
+            <summary>
+            Adaugare Curs
+            </summary>
+            <param name="subjectDTO">Curs</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Controllers.SubjectController.AssigningSubjectToTeacherAsync(System.Int32,System.Int32)">
+            <summary>
+            Atribuire profesor unui subiect
+            </summary>
+            <param name="teacherId">id profesor</param>
+            <param name="subjectId">id subiect</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Controllers.SubjectController.DeleteSubjectAsync(System.Int32)">
+            <summary>
+            Stergere subiect
+            </summary>
+            <param name="subjectId"> Id subiect ce se vrea sters</param>
+            <returns></returns>
+        </member>
+        <member name="T:Proiect___Catalog_Online.Controllers.TeacherController">
+            <summary>
+            TeacherController
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Controllers.TeacherController.#ctor(Proiect___Catalog_Online.Interfaces.Services.ITeacherService)">
+            <summary>
+            TeacherController Class
+            </summary>
+            <param name="teacherService"></param>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Controllers.TeacherController.GetTeachersAsync">
+            <summary>
+            Returneaza lista profesorilor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Controllers.TeacherController.AddTeacherAsync(Proiect___Catalog_Online.DTOs.TeacherDTO)">
+            <summary>
+            Add Teacher
+            </summary>
+            <param name="teacherDTO"></param>
+            <returns>int - new teacher id; string - status</returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Controllers.TeacherController.DeleteTeacherAsync(System.Int32)">
+            <summary>
+            Delete teacher
+            </summary>
+            <param name="teacherId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Controllers.TeacherController.UpdateTeacherAddressAsync(System.Int32,Proiect___Catalog_Online.DTOs.AddressDTO)">
+            <summary>
+            Actualizare adresa profesor
+            </summary>
+            <param name="teacherId">id profesor</param>
+            <param name="addressDTO">adresa</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Controllers.TeacherController.PromoteTeacherAsync(System.Int32)">
+            <summary>
+            Promovare Profesor
+            </summary>
+            <param name="teacherId">id profesor</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Controllers.TeacherController.GetTeacherMarksAsync(System.Int32)">
+            <summary>
+            Returneaza lista notelor acordate de profesor
+            </summary>
+            <param name="teacherId">Id profesor</param>
+            <returns></returns>
+        </member>
+        <member name="T:Proiect___Catalog_Online.DTOs.AddressDTO">
+            <summary>
+            AddressDTO
+            </summary>
+        </member>
+        <member name="P:Proiect___Catalog_Online.DTOs.AddressDTO.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Proiect___Catalog_Online.DTOs.AddressDTO.StudentId">
+            <summary>
+            StudentId
+            </summary>
+        </member>
+        <member name="P:Proiect___Catalog_Online.DTOs.AddressDTO.TeacherId">
+            <summary>
+            TeacherId
+            </summary>
+        </member>
+        <member name="P:Proiect___Catalog_Online.DTOs.AddressDTO.City">
+            <summary>
+            City
+            </summary>
+        </member>
+        <member name="P:Proiect___Catalog_Online.DTOs.AddressDTO.Street">
+            <summary>
+            Street
+            </summary>
+        </member>
+        <member name="P:Proiect___Catalog_Online.DTOs.AddressDTO.StreetNo">
+            <summary>
+            StreetNo
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.DTOs.AddressDTO.#ctor">
+            <summary>
+            AddressDTO Cosntructor
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.DTOs.AddressDTO.#ctor(CatalogOnline_ClassLibrary.EntityModels.Address)">
+            <summary>
+            AddressDTO Cosntructor
+            </summary>
+            <param name="address">address</param>
+        </member>
+        <member name="T:Proiect___Catalog_Online.DTOs.MarkDTO">
+            <summary>
+            MarkDTO
+            </summary>
+        </member>
+        <member name="P:Proiect___Catalog_Online.DTOs.MarkDTO.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Proiect___Catalog_Online.DTOs.MarkDTO.StudentId">
+            <summary>
+            StudentId
+            </summary>
+        </member>
+        <member name="P:Proiect___Catalog_Online.DTOs.MarkDTO.SubjectId">
+            <summary>
+            SubjectId
+            </summary>
+        </member>
+        <member name="P:Proiect___Catalog_Online.DTOs.MarkDTO.Date">
+            <summary>
+            Date
+            </summary>
+        </member>
+        <member name="P:Proiect___Catalog_Online.DTOs.MarkDTO.Value">
+            <summary>
+            MarkDTO
+            </summary>
+        </member>
+        <member name="P:Proiect___Catalog_Online.DTOs.MarkDTO.Student">
+            <summary>
+            Student
+            </summary>
+        </member>
+        <member name="P:Proiect___Catalog_Online.DTOs.MarkDTO.Subject">
+            <summary>
+            Subject
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.DTOs.MarkDTO.#ctor">
+            <summary>
+            MarkDTO
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.DTOs.MarkDTO.#ctor(CatalogOnline_ClassLibrary.EntityModels.Mark)">
+            <summary>
+            MarkDTO
+            </summary>
+            <param name="mark">mark</param>
+        </member>
+        <member name="T:Proiect___Catalog_Online.DTOs.MarkDTO.StudentSubjectDTO">
+            <summary>
+            StudentSubjectDTO - Creat pentru a returna doar datele cerute in utlimul endpoint din partea 3
+            </summary>
+        </member>
+        <member name="P:Proiect___Catalog_Online.DTOs.MarkDTO.StudentSubjectDTO.StudentId">
+            <summary>
+            StudentId
+            </summary>
+        </member>
+        <member name="P:Proiect___Catalog_Online.DTOs.MarkDTO.StudentSubjectDTO.Value">
+            <summary>
+            Value
+            </summary>
+        </member>
+        <member name="P:Proiect___Catalog_Online.DTOs.MarkDTO.StudentSubjectDTO.Date">
+            <summary>
+            Date
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.DTOs.MarkDTO.StudentSubjectDTO.#ctor(CatalogOnline_ClassLibrary.EntityModels.Mark)">
+            <summary>
+            StudentSubjectDTO Constructor
+            </summary>
+            <param name="mark">Mark</param>
+        </member>
+        <member name="T:Proiect___Catalog_Online.DTOs.StudentDTO">
+            <summary>
+            StudentDTO
+            </summary>
+        </member>
+        <member name="P:Proiect___Catalog_Online.DTOs.StudentDTO.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Proiect___Catalog_Online.DTOs.StudentDTO.FirstName">
+            <summary>
+            FirstName
+            </summary>
+        </member>
+        <member name="P:Proiect___Catalog_Online.DTOs.StudentDTO.LastName">
+            <summary>
+            LastName
+            </summary>
+        </member>
+        <member name="P:Proiect___Catalog_Online.DTOs.StudentDTO.Age">
+            <summary>
+            Age
+            </summary>
+        </member>
+        <member name="P:Proiect___Catalog_Online.DTOs.StudentDTO.Address">
+            <summary>
+            Address
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.DTOs.StudentDTO.#ctor">
+            <summary>
+            StudentDTO
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.DTOs.StudentDTO.#ctor(CatalogOnline_ClassLibrary.EntityModels.Student)">
+            <summary>
+            StudentDTO
+            </summary>
+            <param name="student">student</param>
+        </member>
+        <member name="T:Proiect___Catalog_Online.DTOs.SubjectDTO">
+            <summary>
+            SujectDTO
+            </summary>
+        </member>
+        <member name="P:Proiect___Catalog_Online.DTOs.SubjectDTO.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Proiect___Catalog_Online.DTOs.SubjectDTO.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:Proiect___Catalog_Online.DTOs.SubjectDTO.TeacherId">
+            <summary>
+            TeacherId
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.DTOs.SubjectDTO.#ctor">
+            <summary>
+            StudentDTO
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.DTOs.SubjectDTO.#ctor(CatalogOnline_ClassLibrary.EntityModels.Subject)">
+            <summary>
+            SubjectDTO
+            </summary>
+            <param name="subject">subject</param>
+        </member>
+        <member name="T:Proiect___Catalog_Online.DTOs.TeacherDTO">
+            <summary>
+            TeacherDTO
+            </summary>
+        </member>
+        <member name="P:Proiect___Catalog_Online.DTOs.TeacherDTO.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Proiect___Catalog_Online.DTOs.TeacherDTO.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:Proiect___Catalog_Online.DTOs.TeacherDTO.Rank">
+            <summary>
+            Rank
+            </summary>
+        </member>
+        <member name="P:Proiect___Catalog_Online.DTOs.TeacherDTO.Address">
+            <summary>
+            Address
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.DTOs.TeacherDTO.#ctor">
+            <summary>
+            TeacherDTO Constructor
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.DTOs.TeacherDTO.#ctor(CatalogOnline_ClassLibrary.EntityModels.Teacher)">
+            <summary>
+            TeacherDTO constructor
+            </summary>
+            <param name="teacher">teacher object</param>
+        </member>
+        <member name="T:Proiect___Catalog_Online.Enums.TeacherRanks">
+            <summary>
+            Rank Profesori
+            </summary>
+        </member>
+        <member name="F:Proiect___Catalog_Online.Enums.TeacherRanks.Professor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Proiect___Catalog_Online.Enums.TeacherRanks.AssociateProfessor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Proiect___Catalog_Online.Enums.TeacherRanks.AssistantProfessor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Proiect___Catalog_Online.Enums.TeacherRanks.Instructor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Proiect___Catalog_Online.Interfaces.Repositories.IAddressRepository">
+            <summary>
+            Address Repository Interface
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Repositories.IAddressRepository.UpdateAddressAsync(System.Int32,Proiect___Catalog_Online.DTOs.AddressDTO)">
+            <summary>
+            Modificare Adresa
+            </summary>
+            <param name="addressId">Id Adresa</param>
+            <param name="addressDTO">Adresa</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Repositories.IAddressRepository.AddAdressAsync(Proiect___Catalog_Online.DTOs.AddressDTO)">
+            <summary>
+            Adaugare adresa
+            </summary>
+            <param name="addressDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Repositories.IAddressRepository.DeleteAddressAsync(System.Int32)">
+            <summary>
+            Stergere Adresa
+            </summary>
+            <param name="addressId">Id-ul adresei ce se vrea sterge</param>
+            <returns></returns>
         </member>
         <member name="T:Proiect___Catalog_Online.Interfaces.Repositories.IMarkRepository">
             <summary>
@@ -141,10 +555,79 @@
             <param name="studentId"></param>
             <returns></returns>
         </member>
+        <member name="T:Proiect___Catalog_Online.Interfaces.Repositories.IStudentRepository">
+            <summary>
+            Student Repository Interface
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Repositories.IStudentRepository.GetAllStudentsAsync">
+            <summary>
+            Returneaza lista studentilor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Repositories.IStudentRepository.GetStudentByIdAsync(System.Int32)">
+            <summary>
+            Returneaza studentul dupa Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Repositories.IStudentRepository.AddStudentAsync(Proiect___Catalog_Online.DTOs.StudentDTO)">
+            <summary>
+            Adaugare student
+            </summary>
+            <param name="student">Detalii student</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Repositories.IStudentRepository.UpdateStudentAsync(Proiect___Catalog_Online.DTOs.StudentDTO,System.Boolean)">
+            <summary>
+            Actualizare date student
+            </summary>
+            <param name="student">Detalii student</param>
+            <param name="updateAddress">Adresa actualizata</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Repositories.IStudentRepository.DeleteStudentAsync(System.Int32,System.Boolean)">
+            <summary>
+            Stergere student
+            </summary>
+            <param name="id">id student ce se vrea sters</param>
+            <param name="deleteStudentAddress">true - stergere si adresa student / false - nu se sterge adresa studentului sters</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Repositories.IStudentRepository.GetStudentAddressAsync(System.Int32)">
+            <summary>
+            Return adresa student dupa id student
+            </summary>
+            <param name="studentId">id student a carui adresa se vrea returnata</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Repositories.IStudentRepository.UpdateStudentAddressAsync(System.Int32,Proiect___Catalog_Online.DTOs.AddressDTO)">
+            <summary>
+            Actualizare adresa student
+            </summary>
+            <param name="studentId">id student a carui adresa se vrea actualizata</param>
+            <param name="address">adresa actualizata</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Repositories.IStudentRepository.GetStudentsListOrderedByMarksAverageAsync(System.Boolean)">
+            <summary>
+            Returneaza lista studentilor ordonata dupa media notelor
+            </summary>
+            <param name="orderByAscending">true - ordoneaza crescator / fasle - ordonare descrescator</param>
+            <returns></returns>
+        </member>
         <member name="T:Proiect___Catalog_Online.Interfaces.Repositories.ISubjectRepository">
             <summary>
             Subject Repository Intercace
             </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Repositories.ISubjectRepository.GetSubjectsAsync">
+            <summary>
+            Returneaza lista subiectelor
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:Proiect___Catalog_Online.Interfaces.Repositories.ISubjectRepository.AddSubjectAsync(Proiect___Catalog_Online.DTOs.SubjectDTO)">
             <summary>
@@ -152,6 +635,94 @@
             </summary>
             <param name="subjectDTO">Curs</param>
             <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Repositories.ISubjectRepository.DeleteSubjectAsync(System.Int32)">
+            <summary>
+            Stergere subiect
+            </summary>
+            <param name="subjectId"> Id subiect ce se vrea sters</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Repositories.ISubjectRepository.AssigningSubjectToTeacherAsync(System.Int32,System.Int32)">
+            <summary>
+            Atribuire profesor unui subiect
+            </summary>
+            <param name="teacherId">id profesor</param>
+            <param name="subjectId">id subiect</param>
+            <returns></returns>
+        </member>
+        <member name="T:Proiect___Catalog_Online.Interfaces.Repositories.ITeacherRepository">
+            <summary>
+            Teacher Repository Interface
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Repositories.ITeacherRepository.GetTeachersAsync">
+            <summary>
+            Returneaza lista profesorilor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Repositories.ITeacherRepository.AddTeacherAsync(Proiect___Catalog_Online.DTOs.TeacherDTO)">
+            <summary>
+            Add Teacher
+            </summary>
+            <param name="teacherDTO"></param>
+            <returns>int - new teacher id; string - status</returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Repositories.ITeacherRepository.DeleteTeacherAsync(System.Int32)">
+            <summary>
+            Delete teacher
+            </summary>
+            <param name="teacherId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Repositories.ITeacherRepository.UpdateTeacherAddressAsync(System.Int32,Proiect___Catalog_Online.DTOs.AddressDTO)">
+            <summary>
+            Actualizare adresa profesor
+            </summary>
+            <param name="teacherId">id profesor</param>
+            <param name="addressDTO">adresa</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Repositories.ITeacherRepository.PromoteTeacherAsync(System.Int32)">
+            <summary>
+            Promovare Profesor
+            </summary>
+            <param name="teacherId">id profesor</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Repositories.ITeacherRepository.GetTeacherMarksAsync(System.Int32)">
+            <summary>
+            Returneaza lista notelor acordate de profesor
+            </summary>
+            <param name="teacherId">Id profesor</param>
+            <returns></returns>
+        </member>
+        <member name="T:Proiect___Catalog_Online.Interfaces.Services.IAddressService">
+            <summary>
+            Address Service Interface
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Services.IAddressService.UpdateAddressAsync(System.Int32,Proiect___Catalog_Online.DTOs.AddressDTO)">
+            <summary>
+            Modificare Adresa
+            </summary>
+            <param name="addressId">Id Adresa</param>
+            <param name="addressDTO">Adresa</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Services.IAddressService.AddAdressAsync(Proiect___Catalog_Online.DTOs.AddressDTO)">
+            <summary>
+            Adaugare adresa
+            </summary>
+            <param name="addressDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Services.IAddressService.DeleteAddressAsync(System.Int32)">
+            <summary>
+            Sterge o adresa in functie de Id.
+            </summary>
+            <param name="addressId">Id-ul adresei care se vrea actualizat.</param>
         </member>
         <member name="T:Proiect___Catalog_Online.Interfaces.Services.IMarkService">
             <summary>
@@ -182,9 +753,9 @@
         </member>
         <member name="M:Proiect___Catalog_Online.Interfaces.Services.IMarkService.AddMarkAsync(Proiect___Catalog_Online.DTOs.MarkDTO)">
             <summary>
-            Get Student's Averages For Each Subject
+            Add Mark
             </summary>
-            <param name="studentId"></param>
+            <param name="markDTO"></param>
             <returns></returns>
         </member>
         <member name="M:Proiect___Catalog_Online.Interfaces.Services.IMarkService.DeleteStudentMarksAsync(System.Int32)">
@@ -194,9 +765,157 @@
             <param name="studentId"></param>
             <returns></returns>
         </member>
+        <member name="T:Proiect___Catalog_Online.Interfaces.Services.IStudentService">
+            <summary>
+            Student Class Interface
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Services.IStudentService.GetAllStudentsAsync">
+            <summary>
+            Returneaza lista studentilor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Services.IStudentService.GetStudentByIdAsync(System.Int32)">
+            <summary>
+            Returneaza studentul dupa Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Services.IStudentService.AddStudentAsync(Proiect___Catalog_Online.DTOs.StudentDTO)">
+            <summary>
+            Adaugare student
+            </summary>
+            <param name="student">Detalii student</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Services.IStudentService.UpdateStudentAsync(Proiect___Catalog_Online.DTOs.StudentDTO,System.Boolean)">
+            <summary>
+            Actualizare date student
+            </summary>
+            <param name="student">Detalii student</param>
+            <param name="updateAddress">Adresa actualizata</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Services.IStudentService.DeleteStudentAsync(System.Int32,System.Boolean)">
+            <summary>
+            Stergere student
+            </summary>
+            <param name="id">id student ce se vrea sters</param>
+            <param name="deleteStudentAddress">true - stergere si adresa student / false - nu se sterge adresa studentului sters</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Services.IStudentService.GetStudentAddressAsync(System.Int32)">
+            <summary>
+            Return adresa student dupa id student
+            </summary>
+            <param name="studentId">id student a carui adresa se vrea returnata</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Services.IStudentService.UpdateStudentAddressAsync(System.Int32,Proiect___Catalog_Online.DTOs.AddressDTO)">
+            <summary>
+            Actualizare adresa student
+            </summary>
+            <param name="studentId">id student a carui adresa se vrea actualizata</param>
+            <param name="address">adresa actualizata</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Services.IStudentService.GetStudentsListOrderedByMarksAverageAsync(System.Boolean)">
+            <summary>
+            Returneaza lista studentilor ordonata dupa media notelor
+            </summary>
+            <param name="orderByAscending">true - ordoneaza crescator / fasle - ordonare descrescator</param>
+            <returns></returns>
+        </member>
         <member name="T:Proiect___Catalog_Online.Interfaces.Services.ISubjectService">
             <summary>
             Subject Service Interface
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Services.ISubjectService.GetSubjectsAsync">
+            <summary>
+            Returneaza lista subiectelor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Services.ISubjectService.AddSubjectAsync(Proiect___Catalog_Online.DTOs.SubjectDTO)">
+            <summary>
+            Adaugare Curs
+            </summary>
+            <param name="subjectDTO">Curs</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Services.ISubjectService.DeleteSubjectAsync(System.Int32)">
+            <summary>
+            Stergere subiect
+            </summary>
+            <param name="subjectId"> Id subiect ce se vrea sters</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Services.ISubjectService.AssigningSubjectToTeacherAsync(System.Int32,System.Int32)">
+            <summary>
+            Atribuire profesor unui subiect
+            </summary>
+            <param name="teacherId">id profesor</param>
+            <param name="subjectId">id subiect</param>
+            <returns></returns>
+        </member>
+        <member name="T:Proiect___Catalog_Online.Interfaces.Services.ITeacherService">
+            <summary>
+            Teacher Service Interface
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Services.ITeacherService.GetTeachersAsync">
+            <summary>
+            Returneaza lista profesorilor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Services.ITeacherService.AddTeacherAsync(Proiect___Catalog_Online.DTOs.TeacherDTO)">
+            <summary>
+            Add Teacher
+            </summary>
+            <param name="teacherDTO"></param>
+            <returns>int - new teacher id; string - status</returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Services.ITeacherService.DeleteTeacherAsync(System.Int32)">
+            <summary>
+            Delete teacher
+            </summary>
+            <param name="teacherId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Services.ITeacherService.UpdateTeacherAddressAsync(System.Int32,Proiect___Catalog_Online.DTOs.AddressDTO)">
+            <summary>
+            Actualizare adresa profesor
+            </summary>
+            <param name="teacherId">id profesor</param>
+            <param name="addressDTO">adresa</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Services.ITeacherService.PromoteTeacherAsync(System.Int32)">
+            <summary>
+            Promovare Profesor
+            </summary>
+            <param name="teacherId">id profesor</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Interfaces.Services.ITeacherService.GetTeacherMarksAsync(System.Int32)">
+            <summary>
+            Returneaza lista notelor acordate de profesor
+            </summary>
+            <param name="teacherId">Id profesor</param>
+            <returns></returns>
+        </member>
+        <member name="T:Proiect___Catalog_Online.Repositories.AddressRepository">
+            <summary>
+            Address Repository Class
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.AddressRepository.#ctor(CatalogOnline_ClassLibrary.EntityModels.SchoolDbContext)">
+            <summary>
+            Address Repository Constructor
             </summary>
         </member>
         <member name="M:Proiect___Catalog_Online.Repositories.AddressRepository.UpdateAddressAsync(System.Int32,Proiect___Catalog_Online.DTOs.AddressDTO)">
@@ -213,11 +932,11 @@
             </summary>
             <param name="addressId">Id-ul adresei care se vrea actualizat.</param>
         </member>
-        <member name="M:Proiect___Catalog_Online.Repositories.AddressRepository.GetAddressById(System.Int32)">
+        <member name="M:Proiect___Catalog_Online.Repositories.AddressRepository.AddAdressAsync(Proiect___Catalog_Online.DTOs.AddressDTO)">
             <summary>
-            Returneaza adresa dupa Id-ul adresei.
+            Adaugare adresa
             </summary>
-            <param name="id">Id-ul adresei care se vrea returnata.</param>
+            <param name="addressDTO"></param>
             <returns></returns>
         </member>
         <member name="T:Proiect___Catalog_Online.Repositories.MarkRepository">
@@ -267,6 +986,19 @@
             <param name="markDTO"></param>
             <returns></returns>
         </member>
+        <member name="T:Proiect___Catalog_Online.Repositories.StudentRepository">
+            <summary>
+            Student Repository Class
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.StudentRepository.#ctor(CatalogOnline_ClassLibrary.EntityModels.SchoolDbContext,Proiect___Catalog_Online.Interfaces.Services.IAddressService,Proiect___Catalog_Online.Interfaces.Services.IMarkService)">
+            <summary>
+            Student Repository Cosntructor
+            </summary>
+            <param name="db"></param>
+            <param name="addressService"></param>
+            <param name="markService"></param>
+        </member>
         <member name="M:Proiect___Catalog_Online.Repositories.StudentRepository.GetAllStudentsAsync">
             <summary>
             Returneaza lista studentilor.
@@ -284,14 +1016,15 @@
             <summary>
             Adauga un studentDTO nou in baza de date.
             </summary>
-            <param name="student">Studentul</param>
+            <param name="studentDTO">Studentul</param>
             <returns></returns>
         </member>
         <member name="M:Proiect___Catalog_Online.Repositories.StudentRepository.UpdateStudentAsync(Proiect___Catalog_Online.DTOs.StudentDTO,System.Boolean)">
             <summary>
             Actualizeaza un studentDTO si adresa acestuia. Adresa se actualizeaza doar daca se cere actualizarea acesteia.
             </summary>
-            <param name="studentDTO"></param>
+            <param name="studentDTO">date actualizate student</param>
+            <param name="updateAddress">true - actualieaza si adresa / false - nu actualiza adresa</param>
             <returns></returns>
         </member>
         <member name="M:Proiect___Catalog_Online.Repositories.StudentRepository.DeleteStudentAsync(System.Int32,System.Boolean)">
@@ -335,11 +1068,118 @@
             </summary>
             <param name="db"></param>
         </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.SubjectRepository.GetSubjectsAsync">
+            <summary>
+            Returneaza lista subiectelor
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Proiect___Catalog_Online.Repositories.SubjectRepository.AddSubjectAsync(Proiect___Catalog_Online.DTOs.SubjectDTO)">
             <summary>
             Adaugare curs
             </summary>
             <param name="subjectDTO">Curs</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.SubjectRepository.DeleteSubjectAsync(System.Int32)">
+            <summary>
+            Stergere Curs si profesor
+            </summary>
+            <param name="subjectId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.SubjectRepository.AssigningSubjectToTeacherAsync(System.Int32,System.Int32)">
+            <summary>
+            Atribuire profesor unui subiect
+            </summary>
+            <param name="teacherId">id profesor</param>
+            <param name="subjectId">id subiect</param>
+            <returns></returns>
+        </member>
+        <member name="T:Proiect___Catalog_Online.Repositories.TeacherRepository">
+            <summary>
+            Teacher Repository Class
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.TeacherRepository.#ctor(CatalogOnline_ClassLibrary.EntityModels.SchoolDbContext,Proiect___Catalog_Online.Interfaces.Repositories.IAddressRepository)">
+            <summary>
+            Teacher Repository Constructor
+            </summary>
+            <param name="db"></param>
+            <param name="addressService"></param>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.TeacherRepository.GetTeachersAsync">
+            <summary>
+            Returneaza lista profesorilor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.TeacherRepository.AddTeacherAsync(Proiect___Catalog_Online.DTOs.TeacherDTO)">
+            <summary>
+            Add Teacher
+            </summary>
+            <param name="teacherDTO"></param>
+            <returns>int - new teacher id; string - status</returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.TeacherRepository.DeleteTeacherAsync(System.Int32)">
+            <summary>
+            Delete teacher
+            </summary>
+            <param name="teacherId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.TeacherRepository.UpdateTeacherAddressAsync(System.Int32,Proiect___Catalog_Online.DTOs.AddressDTO)">
+            <summary>
+            Actualizare adresa profesor
+            </summary>
+            <param name="teacherId">id profesor</param>
+            <param name="addressDTO">adresa</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.TeacherRepository.PromoteTeacherAsync(System.Int32)">
+            <summary>
+            Promovare Profesor
+            </summary>
+            <param name="teacherId">id profesor</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Repositories.TeacherRepository.GetTeacherMarksAsync(System.Int32)">
+            <summary>
+            Returneaza lista notelor acordate de profesor
+            </summary>
+            <param name="teacherId">Id profesor</param>
+            <returns></returns>
+        </member>
+        <member name="T:Proiect___Catalog_Online.Services.AddressService">
+            <summary>
+            Address Service Class
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Services.AddressService.#ctor(Proiect___Catalog_Online.Interfaces.Repositories.IAddressRepository)">
+            <summary>
+            Address Service Constructor
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Services.AddressService.UpdateAddressAsync(System.Int32,Proiect___Catalog_Online.DTOs.AddressDTO)">
+            <summary>
+            Modificare Adresa
+            </summary>
+            <param name="addressId">Id Adresa</param>
+            <param name="addressDTO">Adresa</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Services.AddressService.DeleteAddressAsync(System.Int32)">
+            <summary>
+            Stergere Adresa
+            </summary>
+            <param name="addressId">Id-ul adresei ce se vrea sterge</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Services.AddressService.AddAdressAsync(Proiect___Catalog_Online.DTOs.AddressDTO)">
+            <summary>
+            Adaugare adresa
+            </summary>
+            <param name="addressDTO"></param>
             <returns></returns>
         </member>
         <member name="T:Proiect___Catalog_Online.Services.MarkService">
@@ -382,6 +1222,24 @@
             <param name="markDTO"></param>
             <returns></returns>
         </member>
+        <member name="M:Proiect___Catalog_Online.Services.MarkService.DeleteStudentMarksAsync(System.Int32)">
+            <summary>
+            Delete student's marks
+            </summary>
+            <param name="studentId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Proiect___Catalog_Online.Services.StudentService">
+            <summary>
+            Student Service Class
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Services.StudentService.#ctor(Proiect___Catalog_Online.Interfaces.Repositories.IStudentRepository)">
+            <summary>
+             Student Service Constructor
+            </summary>
+            <param name="studentRepository"></param>
+        </member>
         <member name="M:Proiect___Catalog_Online.Services.StudentService.GetAllStudentsAsync">
             <summary>
             Returneaza lista studentilor.
@@ -399,14 +1257,15 @@
             <summary>
             Adauga un studentDTO nou in baza de date.
             </summary>
-            <param name="student">Studentul</param>
+            <param name="studentDTO">Studentul</param>
             <returns></returns>
         </member>
         <member name="M:Proiect___Catalog_Online.Services.StudentService.UpdateStudentAsync(Proiect___Catalog_Online.DTOs.StudentDTO,System.Boolean)">
             <summary>
             Actualizeaza un studentDTO si adresa acestuia. Adresa se actualizeaza doar daca se cere actualizarea acesteia.
             </summary>
-            <param name="studentDTO"></param>
+            <param name="studentDTO">date actualizate student</param>
+            <param name="updateAddress">true - actualieaza si adresa / false - nu actualiza adresa</param>
             <returns></returns>
         </member>
         <member name="M:Proiect___Catalog_Online.Services.StudentService.DeleteStudentAsync(System.Int32,System.Boolean)">
@@ -432,6 +1291,13 @@
             <param name="addressDTO">Noua adresa a studentului.</param>
             <returns></returns>
         </member>
+        <member name="M:Proiect___Catalog_Online.Services.StudentService.GetStudentsListOrderedByMarksAverageAsync(System.Boolean)">
+            <summary>
+            Get Students List Ordered By Marks Average
+            </summary>
+            <param name="orderByAscending"></param>
+            <returns>a ordered list of students</returns>
+        </member>
         <member name="T:Proiect___Catalog_Online.Services.SubjectService">
             <summary>
             Subject Service Class
@@ -443,12 +1309,122 @@
             </summary>
             <param name="subjectRepository"></param>
         </member>
+        <member name="M:Proiect___Catalog_Online.Services.SubjectService.GetSubjectsAsync">
+            <summary>
+            Returneaza lista subiectelor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Services.SubjectService.AddSubjectAsync(Proiect___Catalog_Online.DTOs.SubjectDTO)">
+            <summary>
+            Adaugare Curs
+            </summary>
+            <param name="subjectDTO">Curs</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Services.SubjectService.DeleteSubjectAsync(System.Int32)">
+            <summary>
+            Stergere subiect
+            </summary>
+            <param name="subjectId"> Id subiect ce se vrea sters</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Services.SubjectService.AssigningSubjectToTeacherAsync(System.Int32,System.Int32)">
+            <summary>
+            Atribuire profesor unui subiect
+            </summary>
+            <param name="teacherId">id profesor</param>
+            <param name="subjectId">id subiect</param>
+            <returns></returns>
+        </member>
+        <member name="T:Proiect___Catalog_Online.Services.TeacherService">
+            <summary>
+            Teacher Service Class
+            </summary>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Services.TeacherService.#ctor(Proiect___Catalog_Online.Interfaces.Repositories.ITeacherRepository)">
+            <summary>
+            Teacher Service Constructor
+            </summary>
+            <param name="teacherRepository"></param>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Services.TeacherService.GetTeachersAsync">
+            <summary>
+            Returneaza lista profesorilor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Services.TeacherService.AddTeacherAsync(Proiect___Catalog_Online.DTOs.TeacherDTO)">
+            <summary>
+            Add Teacher
+            </summary>
+            <param name="teacherDTO"></param>
+            <returns>int - new teacher id; string - status</returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Services.TeacherService.DeleteTeacherAsync(System.Int32)">
+            <summary>
+            Delete teacher
+            </summary>
+            <param name="teacherId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Services.TeacherService.UpdateTeacherAddressAsync(System.Int32,Proiect___Catalog_Online.DTOs.AddressDTO)">
+            <summary>
+            Actualizare adresa profesor
+            </summary>
+            <param name="teacherId">id profesor</param>
+            <param name="addressDTO">adresa</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Services.TeacherService.PromoteTeacherAsync(System.Int32)">
+            <summary>
+            Promovare Profesor
+            </summary>
+            <param name="teacherId">id profesor</param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Services.TeacherService.GetTeacherMarksAsync(System.Int32)">
+            <summary>
+            Returneaza lista notelor acordate de profesor
+            </summary>
+            <param name="teacherId">Id profesor</param>
+            <returns></returns>
+        </member>
         <member name="T:Proiect___Catalog_Online.Utils.OrderedDictionary`2">
             <summary>
             Custom OrderedDictionary implementation
             </summary>
             <typeparam name="TKey"></typeparam>
             <typeparam name="TValue"></typeparam>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Utils.OrderedDictionary`2.Add(`0,`1)">
+            <summary>
+            Add
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Utils.OrderedDictionary`2.Remove(`0)">
+            <summary>
+            Remove
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proiect___Catalog_Online.Utils.OrderedDictionary`2.Clear">
+            <summary>
+            Clear
+            </summary>
+        </member>
+        <member name="P:Proiect___Catalog_Online.Utils.OrderedDictionary`2.Keys">
+            <summary>
+            Keys
+            </summary>
+        </member>
+        <member name="P:Proiect___Catalog_Online.Utils.OrderedDictionary`2.Values">
+            <summary>
+            Values
+            </summary>
         </member>
     </members>
 </doc>

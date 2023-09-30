@@ -22,6 +22,6 @@ namespace CatalogOnline_ClassLibrary.EntityModels
         public string Name { get; set; }
 
         [ForeignKey("Teachers")]
-        public int TeacherId { get; set; }
+        public int? TeacherId { get; set; }
     }
 }

@@ -30,10 +30,11 @@ namespace Proiect___Catalog_Online.Interfaces.Services
         /// <returns></returns>
         Task<Dictionary<string, decimal>> GetStudentAveragesForEachSubjectAsync(int studentId);
 
+
         /// <summary>
-        /// Get Student's Averages For Each Subject
+        /// Add Mark
         /// </summary>
-        /// <param name="studentId"></param>
+        /// <param name="markDTO"></param>
         /// <returns></returns>
         Task<Dictionary<int, string>> AddMarkAsync(MarkDTO markDTO);
 

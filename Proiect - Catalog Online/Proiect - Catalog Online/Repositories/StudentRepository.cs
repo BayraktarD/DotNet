@@ -11,11 +11,21 @@ using System.Xml.Linq;
 
 namespace Proiect___Catalog_Online.Repositories
 {
+    /// <summary>
+    /// Student Repository Class
+    /// </summary>
     public class StudentRepository : IStudentRepository
     {
         private readonly SchoolDbContext _db;
         private readonly IAddressService _addressService;
         private readonly IMarkService _markService;
+
+        /// <summary>
+        /// Student Repository Cosntructor
+        /// </summary>
+        /// <param name="db"></param>
+        /// <param name="addressService"></param>
+        /// <param name="markService"></param>
         public StudentRepository(SchoolDbContext db, IAddressService addressService, IMarkService markService)
         {
             _db = db;
@@ -29,11 +39,11 @@ namespace Proiect___Catalog_Online.Repositories
         /// <returns></returns>
         public async Task<IEnumerable<StudentDTO>> GetAllStudentsAsync()
         {
-            var students = _db.Students.ToList();
+            var students = await _db.Students.ToListAsync();
 
             foreach (var student in students)
             {
-                student.Address = _db.Addresses.FirstOrDefault(x => x.StudentId == student.Id);
+                student.Address = await _db.Addresses.FirstOrDefaultAsync(x => x.StudentId == student.Id);
             }
 
             IEnumerable<StudentDTO> studentDTOs = students.Select(s => new StudentDTO(s));
@@ -49,13 +59,14 @@ namespace Proiect___Catalog_Online.Repositories
         /// <returns></returns>
         public async Task<StudentDTO> GetStudentByIdAsync(int id)
         {
-            var student = _db.Students.SingleOrDefault(x => x.Id == id);
+            StudentDTO studentDTO = new StudentDTO();
+            var student = await _db.Students.FirstOrDefaultAsync(x => x.Id == id);
+            if (student != null)
+            {
 
-            student.Address = _db.Addresses.FirstOrDefault(x => x.StudentId == student.Id);
-
-            var studentDTO = new StudentDTO(student);
-
-            var marks = _db.Marks.Where(x => x.StudentId == student.Id).ToList();
+                student.Address = await _db.Addresses.FirstOrDefaultAsync(x => x.StudentId == student.Id);
+                studentDTO = new StudentDTO(student);
+            }
 
             return studentDTO;
         }
@@ -65,7 +76,7 @@ namespace Proiect___Catalog_Online.Repositories
         /// <summary>
         /// Adauga un studentDTO nou in baza de date.
         /// </summary>
-        /// <param name="student">Studentul</param>
+        /// <param name="studentDTO">Studentul</param>
         /// <returns></returns>
         public async Task<Dictionary<int, string>> AddStudentAsync(StudentDTO studentDTO)
         {
@@ -105,7 +116,8 @@ namespace Proiect___Catalog_Online.Repositories
         /// <summary>
         /// Actualizeaza un studentDTO si adresa acestuia. Adresa se actualizeaza doar daca se cere actualizarea acesteia.
         /// </summary>
-        /// <param name="studentDTO"></param>
+        /// <param name="studentDTO">date actualizate student</param>
+        /// <param name="updateAddress">true - actualieaza si adresa / false - nu actualiza adresa</param>
         /// <returns></returns>
         public async Task<Dictionary<int, string>> UpdateStudentAsync(StudentDTO studentDTO, bool updateAddress)
         {
@@ -115,7 +127,7 @@ namespace Proiect___Catalog_Online.Repositories
                 var existingStudent = _db.Students.FirstOrDefault(x => x.Id == studentDTO.Id);
                 var existingStudentAddress = _db.Addresses.FirstOrDefault(x => x.StudentId == studentDTO.Id);
 
-                if (studentDTO.Address.StudentId != studentDTO.Id)
+                if (studentDTO.Address != null && studentDTO.Address.StudentId != studentDTO.Id)
                 {
                     studentDTO.Address.StudentId = (int)studentDTO.Id;
                 }
@@ -127,7 +139,7 @@ namespace Proiect___Catalog_Online.Repositories
                     existingStudent.LastName = studentDTO.LastName;
                     existingStudent.Age = (int)studentDTO.Age;
 
-                    _db.SaveChangesAsync();
+                    await _db.SaveChangesAsync();
 
                     if (updateAddress)
                     {
@@ -225,14 +237,15 @@ namespace Proiect___Catalog_Online.Repositories
         /// <returns></returns>
         public async Task<AddressDTO> GetStudentAddressAsync(int studentId)
         {
-            Address address = new Address();
+            AddressDTO addressDTO = new AddressDTO();
             var student = _db.Students.Include(x => x.Address).FirstOrDefault(x => x.Id == studentId);
             if (student != null)
             {
-                address = await _db.Addresses.Where(x => x.StudentId == studentId).FirstOrDefaultAsync();
+                var address = await _db.Addresses.FirstOrDefaultAsync(x => x.StudentId == studentId);
+                if (address != null)
+                    addressDTO = new AddressDTO(address);
             }
 
-            AddressDTO addressDTO = new AddressDTO(address);
             return addressDTO;
         }
 
@@ -265,6 +278,8 @@ namespace Proiect___Catalog_Online.Repositories
                             {
                                 return addressUpdateResult;
                             }
+                            result.Add(existingStudentAddress.Id, "200 - Success");
+
                         }
                     }
                     else
@@ -274,9 +289,12 @@ namespace Proiect___Catalog_Online.Repositories
                         {
                             return addressAddResult;
                         }
+                        else
+                        {
+                            result.Add(addressAddResult.Keys.First(), "200 - Success");
+                        }
                     }
-
-                    result.Add(existingStudentAddress.Id, "200 - Success");
+                    return result;
                 }
                 else
                 {

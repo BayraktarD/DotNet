@@ -65,6 +65,12 @@ namespace Proiect___Catalog_Online.Services
            return await _markRepository.AddMarkAsync(markDTO);
         }
 
+
+        /// <summary>
+        /// Delete student's marks
+        /// </summary>
+        /// <param name="studentId"></param>
+        /// <returns></returns>
         public async Task<Dictionary<bool, string>> DeleteStudentMarksAsync(int studentId)
         {
             return await _markRepository.DeleteStudentMarksAsync(studentId);

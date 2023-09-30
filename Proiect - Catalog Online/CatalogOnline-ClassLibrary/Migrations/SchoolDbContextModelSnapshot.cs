@@ -42,13 +42,21 @@ namespace CatalogOnline_ClassLibrary.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("StudentId")
+                    b.Property<int?>("StudentId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TeacherId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("StudentId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[StudentId] IS NOT NULL");
+
+                    b.HasIndex("TeacherId")
+                        .IsUnique()
+                        .HasFilter("[TeacherId] IS NOT NULL");
 
                     b.ToTable("Addresses");
                 });
@@ -118,7 +126,7 @@ namespace CatalogOnline_ClassLibrary.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TeacherId")
+                    b.Property<int?>("TeacherId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -133,10 +141,6 @@ namespace CatalogOnline_ClassLibrary.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -154,9 +158,11 @@ namespace CatalogOnline_ClassLibrary.Migrations
                 {
                     b.HasOne("CatalogOnline_ClassLibrary.EntityModels.Student", null)
                         .WithOne("Address")
-                        .HasForeignKey("CatalogOnline_ClassLibrary.EntityModels.Address", "StudentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CatalogOnline_ClassLibrary.EntityModels.Address", "StudentId");
+
+                    b.HasOne("CatalogOnline_ClassLibrary.EntityModels.Teacher", null)
+                        .WithOne("Address")
+                        .HasForeignKey("CatalogOnline_ClassLibrary.EntityModels.Address", "TeacherId");
                 });
 
             modelBuilder.Entity("CatalogOnline_ClassLibrary.EntityModels.Mark", b =>
@@ -179,6 +185,11 @@ namespace CatalogOnline_ClassLibrary.Migrations
                 });
 
             modelBuilder.Entity("CatalogOnline_ClassLibrary.EntityModels.Student", b =>
+                {
+                    b.Navigation("Address");
+                });
+
+            modelBuilder.Entity("CatalogOnline_ClassLibrary.EntityModels.Teacher", b =>
                 {
                     b.Navigation("Address");
                 });

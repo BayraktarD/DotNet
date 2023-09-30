@@ -5,10 +5,18 @@ using Proiect___Catalog_Online.Interfaces.Services;
 
 namespace Proiect___Catalog_Online.Services
 {
+
+    /// <summary>
+    /// Student Service Class
+    /// </summary>
     public class StudentService:IStudentService
     {
         private readonly IStudentRepository _studentRepository;
 
+        /// <summary>
+        ///  Student Service Constructor
+        /// </summary>
+        /// <param name="studentRepository"></param>
         public StudentService(IStudentRepository studentRepository)
         {
             _studentRepository = studentRepository;
@@ -39,7 +47,7 @@ namespace Proiect___Catalog_Online.Services
         /// <summary>
         /// Adauga un studentDTO nou in baza de date.
         /// </summary>
-        /// <param name="student">Studentul</param>
+        /// <param name="studentDTO">Studentul</param>
         /// <returns></returns>
         public async Task<Dictionary<int, string>> AddStudentAsync(StudentDTO studentDTO)
         {
@@ -50,7 +58,8 @@ namespace Proiect___Catalog_Online.Services
         /// <summary>
         /// Actualizeaza un studentDTO si adresa acestuia. Adresa se actualizeaza doar daca se cere actualizarea acesteia.
         /// </summary>
-        /// <param name="studentDTO"></param>
+        /// <param name="studentDTO">date actualizate student</param>
+        /// <param name="updateAddress">true - actualieaza si adresa / false - nu actualiza adresa</param>
         /// <returns></returns>
         public async Task<Dictionary<int, string>> UpdateStudentAsync(StudentDTO studentDTO, bool updateAddress)
         {
@@ -96,6 +105,11 @@ namespace Proiect___Catalog_Online.Services
             return await _studentRepository.UpdateStudentAddressAsync(studentId,addressDTO);
         }
 
+        /// <summary>
+        /// Get Students List Ordered By Marks Average
+        /// </summary>
+        /// <param name="orderByAscending"></param>
+        /// <returns>a ordered list of students</returns>
         public async Task<Dictionary<string, decimal>> GetStudentsListOrderedByMarksAverageAsync(bool orderByAscending)
         {
            return await _studentRepository.GetStudentsListOrderedByMarksAverageAsync(orderByAscending);

@@ -12,6 +12,7 @@ namespace Proiect___Catalog_Online.Services
     {
         private readonly ISubjectRepository _subjectRepository;
 
+
         /// <summary>
         /// Subject Service Constructor
         /// </summary>
@@ -21,15 +22,45 @@ namespace Proiect___Catalog_Online.Services
             _subjectRepository = subjectRepository;
         }
 
+        /// <summary>
+        /// Returneaza lista subiectelor
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IEnumerable<SubjectDTO>> GetSubjectsAsync()
+        {
+            return await _subjectRepository.GetSubjectsAsync();
+        }
+
+        /// <summary>
+        /// Adaugare Curs
+        /// </summary>
+        /// <param name="subjectDTO">Curs</param>
+        /// <returns></returns>
         public async Task<Dictionary<int, string>> AddSubjectAsync(SubjectDTO subjectDTO)
         {
             return await _subjectRepository.AddSubjectAsync(subjectDTO);
         }
 
-        public async Task<Dictionary<bool, string>> UpdateSubjectTeacherAsync(int teacherId, int subjectId)
+        /// <summary>
+        /// Stergere subiect
+        /// </summary>
+        /// <param name="subjectId"> Id subiect ce se vrea sters</param>
+        /// <returns></returns>
+        public async Task<Dictionary<bool, string>> DeleteSubjectAsync(int subjectId)
         {
-            return await _subjectRepository.UpdateSubjectTeacherAsync(teacherId, subjectId);
+            return await _subjectRepository.DeleteSubjectAsync(subjectId);
+        }
 
+
+        /// <summary>
+        /// Atribuire profesor unui subiect
+        /// </summary>
+        /// <param name="teacherId">id profesor</param>
+        /// <param name="subjectId">id subiect</param>
+        /// <returns></returns>
+        public async Task<Dictionary<bool, string>> AssigningSubjectToTeacherAsync(int teacherId, int subjectId)
+        {
+            return await _subjectRepository.AssigningSubjectToTeacherAsync(teacherId, subjectId);
         }
     }
 }

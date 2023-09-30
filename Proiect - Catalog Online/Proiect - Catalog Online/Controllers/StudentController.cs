@@ -8,12 +8,20 @@ using Proiect___Catalog_Online.Repositories;
 
 namespace Proiect___Catalog_Online.Controllers
 {
+    /// <summary>
+    /// StudentController
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class StudentController : ControllerBase
     {
         private IStudentService _studentService;
 
+
+        /// <summary>
+        /// StudentController Constructor
+        /// </summary>
+        /// <param name="studentService"></param>
         public StudentController(IStudentService studentService)
         {
             _studentService = studentService;
@@ -192,6 +200,12 @@ namespace Proiect___Catalog_Online.Controllers
             }
         }
 
+
+        /// <summary>
+        /// Get Students List Ordered By Marks Average
+        /// </summary>
+        /// <param name="orderByAscending"></param>
+        /// <returns>a ordered list of students</returns>
         [HttpGet(" GetStudentsListOrderedByMarksAverage")]
         public async Task<Dictionary<string, decimal>> GetStudentsListOrderedByMarksAverageAsync([FromQuery] bool orderByAscending = true)
         {

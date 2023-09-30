@@ -6,10 +6,16 @@ using Proiect___Catalog_Online.Interfaces.Repositories;
 
 namespace Proiect___Catalog_Online.Repositories
 {
-    public class AddressRepository: IAddressRepository
+    /// <summary>
+    /// Address Repository Class
+    /// </summary>
+    public class AddressRepository : IAddressRepository
     {
         private readonly SchoolDbContext _db;
 
+        /// <summary>
+        /// Address Repository Constructor
+        /// </summary>
         public AddressRepository(SchoolDbContext db)
         {
             _db = db;
@@ -26,13 +32,16 @@ namespace Proiect___Catalog_Online.Repositories
             try
             {
                 var address = await _db.Addresses.FirstOrDefaultAsync(x => x.Id == addressId);
-                address.City = addressDTO.City;
-                address.Street = addressDTO.Street;
-                address.StreetNo = addressDTO.StreetNo;
+                if (address != null)
+                {
+                    address.City = addressDTO.City;
+                    address.Street = addressDTO.Street;
+                    address.StreetNo = addressDTO.StreetNo;
 
-                await _db.SaveChangesAsync();
+                    await _db.SaveChangesAsync();
 
-                result.Add(address.Id, "200 - Success");
+                    result.Add(address.Id, "200 - Success");
+                }
             }
             catch (Exception ex)
             {
@@ -49,24 +58,19 @@ namespace Proiect___Catalog_Online.Repositories
         {
 
             var address = await _db.Addresses.FirstOrDefaultAsync(x => x.Id == addressId);
-
-            _db.Addresses.Remove(address);
+            if (address != null)
+            {
+                _db.Addresses.Remove(address);
+            }
 
             await _db.SaveChangesAsync();
         }
 
-
-
         /// <summary>
-        /// Returneaza adresa dupa Id-ul adresei.
+        /// Adaugare adresa
         /// </summary>
-        /// <param name="id">Id-ul adresei care se vrea returnata.</param>
+        /// <param name="addressDTO"></param>
         /// <returns></returns>
-        public Address GetAddressById(int id)
-        {
-            return _db.Addresses.FirstOrDefault(x => x.Id == id);
-        }
-
         public async Task<Dictionary<int, string>> AddAdressAsync(AddressDTO addressDTO)
         {
             var resutl = new Dictionary<int, string>();
@@ -77,7 +81,8 @@ namespace Proiect___Catalog_Online.Repositories
                     City = addressDTO.City,
                     Street = addressDTO.Street,
                     StreetNo = addressDTO.StreetNo,
-                    StudentId = addressDTO.StudentId,
+                    StudentId = addressDTO.StudentId != 0 ? addressDTO.StudentId : null,
+                    TeacherId = addressDTO.TeacherId != 0 ? addressDTO.TeacherId : null,
                 };
                 await _db.Addresses.AddAsync(address);
                 await _db.SaveChangesAsync();

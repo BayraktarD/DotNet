@@ -15,6 +15,11 @@ namespace Proiect___Catalog_Online.Controllers
     public class MarkController : ControllerBase
     {
         private readonly IMarkService _markService;
+
+        /// <summary>
+        /// MarkController Constructor
+        /// </summary>
+        /// <param name="markService"></param>
         public MarkController(IMarkService markService)
         {
             _markService= markService;

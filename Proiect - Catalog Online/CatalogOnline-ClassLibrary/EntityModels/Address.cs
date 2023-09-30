@@ -18,7 +18,10 @@ namespace CatalogOnline_ClassLibrary.EntityModels
         public int Id { get; set; }
 
         [ForeignKey("Students")]
-        public int StudentId { get; set; }
+        public int? StudentId { get; set; }
+
+        [ForeignKey("Teachers")]
+        public int? TeacherId { get; set; }
 
 
         /// <summary>

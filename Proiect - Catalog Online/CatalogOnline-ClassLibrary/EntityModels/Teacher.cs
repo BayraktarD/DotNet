@@ -12,7 +12,9 @@ namespace CatalogOnline_ClassLibrary.EntityModels
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Address { get; set; }
         public int Rank { get; set; }
+
+        public virtual Address? Address { get; set; }
+
     }
 }
